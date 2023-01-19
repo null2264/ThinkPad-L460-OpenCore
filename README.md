@@ -37,6 +37,7 @@
 ## Other Repositories
 - ThinkPad X1C6:
   - [benbender/x1c6-hackintosh](https://github.com/benbender/x1c6-hackintosh)
+  - [tylernguyen/x1c6-hackintosh](https://github.com/tylernguyen/x1c6-hackintosh)
 - ThinkPad T460s:
   - [simprecicchiani/ThinkPad-T460s-macOS-OpenCore](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore)
 
