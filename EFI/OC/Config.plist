@@ -457,11 +457,11 @@
 				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con1-alldata</key>
-				<data>AQUJAAAIAACHAQAA</data>
+				<data>AgQKAAAIAACHAQAA</data>
 				<key>framebuffer-con2-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con2-alldata</key>
-				<data>AgQKAAAEAACHAQAA</data>
+				<data>AwYKAAAEAACHAQAA</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1F,0x3)</key>
 			<dict>
