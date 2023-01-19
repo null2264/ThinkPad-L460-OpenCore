@@ -33,3 +33,17 @@
 ## 📋 TODO
 - [ ] Dump ACPI into this repo
 - [ ] Reuse AirportItlwm once it become stable
+
+## Other Repositories
+- ThinkPad X1C6:
+  - [benbender/x1c6-hackintosh](https://github.com/benbender/x1c6-hackintosh)
+- ThinkPad T460s:
+  - [simprecicchiani/ThinkPad-T460s-macOS-OpenCore](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore)
+
+## Credits
+- [@acidanthera](https://github.com/acidanthera)
+- [@benbender](https://github.com/benbender) for SSDT-Sleep that I adapted to work with L460
+- [@corpnewt](https://github.com/corpnewt) for [gibMacOS](https://github.com/corpnewt/gibMacOS) and [MountEFI](https://github.com/corpnewt/MountEFI).
+- [@dortania](https://github.com/dortania) for their amazing guide
+- [@zhen-zen](https://github.com/zhen-zen) for YogaSMC
+- [@zxystd](https://github.com/zxystd) for [itlwm](https://github.com/OpenIntelWireless/itlwm)
