@@ -13,7 +13,10 @@
 ## 🔧 Status
 
 ### ✔️ Working
-- GPU (Require GfxYTile to fix flickers and glitches, but acceleration working as intended)
+- GPU (Require GfxYTile to fix flickers and glitches, but acceleration working as intended)  
+  Glitches still sometimes happened under certain circumstances such as:
+  - Using HiDPI
+  - Connect to an external monitor with (native) resolution under 1080
 - Audio + Combo Jack (using [OpenALC](https://github.com/acidanthera/AppleALC))
 - Sleep (Although it broke EC, specifically FN hotkeys, but sleep itselves working as intended)
 
