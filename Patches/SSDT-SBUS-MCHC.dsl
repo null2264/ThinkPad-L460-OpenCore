@@ -4,67 +4,62 @@
  */
 DefinitionBlock ("", "SSDT", 2, "ACDT", "MCHCSBUS", 0x00000000)
 {
+    // From SSDT-DARWIN.dsl
+    External (OSDW, MethodObj) // 0 Arguments
+
     External (\_SB.PCI0, DeviceObj)
     External (\_SB.PCI0.SMBU, DeviceObj)
 
     Scope (\_SB.PCI0)
     {
+        // Ref: https://github.com/khronokernel/DarwinDumped/blob/ed4ff5b/MacBookPro/MacBookPro13%2C3/ACPI%20Tables/DSL/DSDT.dsl#L2625~L2628
         Device (MCHC)
         {
             Name (_ADR, Zero)  // _ADR: Address
  
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                If (_OSI ("Darwin"))
+                If (OSDW ())
                 {
                     Return (0x0F)
                 }
-                Else
-                {
-                    Return (Zero)
-                }
+
+                Return (Zero)
             }
         }
     }
 
-    Device (\_SB.PCI0.SMBU.BUS0)
+    Device (\_SB.PCI0.SMBU)
     {
-        Name (_CID, "smbus")  // _CID: Compatible ID
-        Name (_ADR, Zero)  // _ADR: Address
+        // Ref: https://github.com/khronokernel/DarwinDumped/blob/ed4ff5b/MacBookPro/MacBookPro13%2C3/ACPI%20Tables/DSL/DSDT.dsl#L6327~L6337
+        Device (BUS0) {
+            Name (_CID, "smbus")  // _CID: Compatible ID
+            Name (_ADR, Zero)  // _ADR: Address
 
-        Device (DVL0)
-        {
-            Name (_ADR, 0x57)  // _ADR: Address
-            Name (_CID, "diagsvault")  // _CID: Compatible ID
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                If (!Arg2)
+                If (OSDW ())
                 {
-                    Return (Buffer (One)
-                    {
-                         0x03                                             // W
-                    })
+                    Return (0x0F)
                 }
 
-                Return (Package (0x02)
-                {
-                    "address", 
-                    0x57
-                })
+                Return (Zero)
             }
         }
 
-        Method (_STA, 0, NotSerialized)  // _STA: Status
-        {
-            If (_OSI ("Darwin"))
+        Device (BUS1) {
+            Name (_CID, "smbus")  // _CID: Compatible ID
+            Name (_ADR, One)  // _ADR: Address
+
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                Return (0x0F)
-            }
-            Else
-            {
+                If (OSDW ())
+                {
+                    Return (0x0F)
+                }
+
                 Return (Zero)
             }
         }
     }
 }
-// vi: ts=4 sw=4 et
