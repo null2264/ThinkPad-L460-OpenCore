@@ -51,7 +51,7 @@
   - I don't see a point to support SD Card Reader since it's usually have a really slow RW
 
 ### ❓ Not Tested
-- Wired Ethernet (using [Mausi](https://www.tonymacx86.com/resources/intelmausi.499/)
+- Wired Ethernet (using [Mausi](https://www.tonymacx86.com/resources/intelmausi.499/))
   - Was working on Catalina
   - Broken on Monterey (Probably forgot to update the Kext when updating to Monterey)
   - Not tested on Ventura
