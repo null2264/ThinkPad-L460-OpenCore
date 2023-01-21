@@ -18,7 +18,29 @@
 - LAN: Intel i219
 - WLAN/Bluetooth: Intel(R) Dual Band Wireless-AC 8260
 
+### BIOS Config
+
+TODO
+
+### Post-Install Setup
+
+#### Enable Apple Services
+
+> **Note**
+>
+> If you (still) can't login to iMessage you may need to Apple Support to unblacklist your AppleID (You can try opening the Message app from terminal to check the log to see if you get Customer Code error, which is an indication that your AppleID got blacklisted. [See more info here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#customer-code-error)
+
+1. Download (or clone) [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) and run it in terminal
+2. Type `3` to generate SMBIOS, then press <kbd>Enter</kbd>
+3. Type `MacBookPro14,1 5`, then press <kbd>Enter</kbd>
+4. Open `EFI/Config.plist` (I highly recommend using [ProperTree](https://github.com/corpnewt/ProperTree)) and navigate to `PlatformInfo -> Generic`
+5. Add one of the script's result to `MLB`, `SystemSerialNumber`, and `SystemUUID`
+7. Replace `ROM` with your MAC Address (`System Preferences -> Network -> Ethernet -> Advanced -> Hardware -> MAC Address`, then remove all the colons `:`). Or you can also try using a real Apple MAC Address
+8. Save and Reboot
+9. Check the Serial Number validity. Repeat step 5 and choose different result (or generate new set of SMBIOS) if you saw `Valid Purchase Date`
+
 ## 🔧 Status
+
 > **Note**
 >
 > Your experience may vary
@@ -62,14 +84,14 @@
 - [ ] Dump ACPI into this repo
 - [ ] Reuse AirportItlwm once it become stable
 
-## Other Repositories
+## 📂 Other Repositories
 - ThinkPad X1C6:
   - [benbender/x1c6-hackintosh](https://github.com/benbender/x1c6-hackintosh)
   - [tylernguyen/x1c6-hackintosh](https://github.com/tylernguyen/x1c6-hackintosh)
 - ThinkPad T460s:
   - [simprecicchiani/ThinkPad-T460s-macOS-OpenCore](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore)
 
-## Credits
+## ℹ️ Credits
 - [@acidanthera](https://github.com/acidanthera) for maintaining and developing a lot of amazing Kexts
 - [@benbender](https://github.com/benbender) for SSDT-Sleep that I adapted to work with L460
 - [@corpnewt](https://github.com/corpnewt) for [gibMacOS](https://github.com/corpnewt/gibMacOS) and [MountEFI](https://github.com/corpnewt/MountEFI).
