@@ -15,7 +15,7 @@
  */
 DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
 {
-    // Common utils from SSDT-Darwin.dsl
+    // From SSDT-DARWIN.dsl
     External (OSDW, MethodObj) // 0 Arguments
 
     // Sleep config from BIOS
