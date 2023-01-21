@@ -3,6 +3,15 @@
  * A L460 port for BenBender's SSDT-Sleep which is made for X1C6. Created to replace PTWK
  *
  * Ref: https://github.com/tylernguyen/x1c6-hackintosh/blob/main/patches/SSDT-Sleep.dsl
+ *
+ * Config.plist -> ACPI -> Patch
+ * Comment: SLEEP: _PTS to ZPTS
+ * Find:    5F50545301
+ * Replace: 5A50545301
+ *
+ * Comment: SLEEP: _WAK to ZWAK
+ * Find:    5F57414B01
+ * Replace: 5A57414B01
  */
 DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
 {

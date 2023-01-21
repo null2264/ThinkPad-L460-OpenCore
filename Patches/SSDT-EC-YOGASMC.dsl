@@ -1,6 +1,6 @@
 /* vim: ts=4 sw=4 et
  *
- * EC Patch for YogaSMC, not to be confused with EC Patch by Dortania
+ * EC Patches (Mostly for YogaSMC), not to be confused with EC Patch by Dortania
  */
 DefinitionBlock ("", "SSDT", 2, "THKP", "YGEC", 0x00000000)
 {
@@ -14,6 +14,28 @@ DefinitionBlock ("", "SSDT", 2, "THKP", "YGEC", 0x00000000)
      */
     Scope (_SB.PCI0.LPC.EC)
     {
+        /*
+         * Split HWAK into 2 since it uses 16-bit (Accessed by _WAK and GPE._L43)
+         *
+         * Config.plist -> ACPI -> Patch
+         * Comment: EC: EC.HWAK to EC.XWAK
+         * Find:    45 43 5F 5F 48 57 41 4B
+         * Replace: 45 43 5F 5F 58 57 41 4B
+         */
+        OperationRegion (WRAM, EmbeddedControl, Zero, 0x0100)
+        Field (WRAM, ByteAcc, NoLock, Preserve)
+        {
+            Offset (0x36),
+            XWA0,   8,
+            XWA1,   8
+        }
+
+        Method (XWAK, 0, NotSerialized)
+        {
+            Return ((XWA0 | (XWA1 << 0x08)))
+        }
+
+        // -- Stuff for YogaSMC
         Method (RE1B, 1, NotSerialized)
         {
             OperationRegion (ERAM, EmbeddedControl, Arg0, One)
