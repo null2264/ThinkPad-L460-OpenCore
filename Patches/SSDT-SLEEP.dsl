@@ -6,12 +6,12 @@
  *
  * Config.plist -> ACPI -> Patch
  * Comment: SLEEP: _PTS to ZPTS
- * Find:    5F50545301
- * Replace: 5A50545301
+ * Find:    5F 50 54 53 01
+ * Replace: 5A 50 54 53 01
  *
  * Comment: SLEEP: _WAK to ZWAK
- * Find:    5F57414B01
- * Replace: 5A57414B01
+ * Find:    5F 57 41 4B 01
+ * Replace: 5A 57 41 4B 01
  */
 
 DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)

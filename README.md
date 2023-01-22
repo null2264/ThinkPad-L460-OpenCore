@@ -62,7 +62,8 @@ TODO
   - Caused "Volume Hash Mismatch" error after waking from sleep, reboot to fix
   - Some Intel Bluetooth users reported that `sudo pkill bluetoothd` may fix this issue temporarily, but this doesn't work on my laptop. Bluetooth devices refuses to connect entirely
 - EC (Broken after sleep)
-  - FN hotkeys completely broken after sleep, reboot to fix
+  - FN hotkeys completely broken after sleep, reboot to fix  
+    \_Qxx won't fires at all after sleep causes FN hotkeys to not working
   - Battery status is delayed
 
 ### ❌ Not Working
@@ -83,7 +84,6 @@ TODO
 ## 📋 TODO
 - [ ] Dump ACPI into this repo
 - [ ] Reuse AirportItlwm once it become stable
-- [ ] Debug \_Qxx (Especially FN-Keys)
 
 ## 📂 Other Repositories
 - ThinkPad X1C6:
