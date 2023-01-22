@@ -13,6 +13,7 @@
  * Find:    5F57414B01
  * Replace: 5A57414B01
  */
+
 DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
 {
     // From SSDT-DARWIN.dsl

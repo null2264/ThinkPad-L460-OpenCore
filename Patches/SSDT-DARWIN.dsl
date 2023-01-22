@@ -1,7 +1,8 @@
 /* vim: ts=4 sw=4 et
  *
- * Helper SSDT
+ * Helper SSDT, implements native Mac stuff
  */
+
 DefinitionBlock ("", "SSDT", 2, "ZIRO", "_DW", 0x00000000)
 {
     Scope (\)

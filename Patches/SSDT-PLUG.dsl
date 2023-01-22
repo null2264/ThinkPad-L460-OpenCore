@@ -2,6 +2,7 @@
  *
  * Power Management SSDT, technically a cleaned up version of SSDT-PLUG-DRTNIA
  */
+
 DefinitionBlock ("", "SSDT", 2, "ZIRO", "PLUG", 0x00000000)
 {
     // From SSDT-DARWIN.dsl

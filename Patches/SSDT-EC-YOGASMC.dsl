@@ -2,6 +2,7 @@
  *
  * EC Patches (Mostly for YogaSMC), not to be confused with EC Patch by Dortania
  */
+
 DefinitionBlock ("", "SSDT", 2, "THKP", "YGEC", 0x00000000)
 {
     External (_SB_.PCI0.LPC.EC, DeviceObj)

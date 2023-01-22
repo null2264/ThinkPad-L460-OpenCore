@@ -2,6 +2,7 @@
  *
  * SMBus compatibility table.
  */
+
 DefinitionBlock ("", "SSDT", 2, "ACDT", "MCHCSBUS", 0x00000000)
 {
     // From SSDT-DARWIN.dsl
