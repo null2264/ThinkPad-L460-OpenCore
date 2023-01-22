@@ -83,6 +83,7 @@ TODO
 ## 📋 TODO
 - [ ] Dump ACPI into this repo
 - [ ] Reuse AirportItlwm once it become stable
+- [ ] Debug \_Qxx (Especially FN-Keys)
 
 ## 📂 Other Repositories
 - ThinkPad X1C6:
