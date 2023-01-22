@@ -45,7 +45,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "THKP", 0x00000000)
 
                 // [TEST NEEDED] FN-key fixed for E14-15, maybe it'll work for L460 too?
                 H8DR = One
-                Debug = "INIT: Force set H8DR to 0x01"
+                Debug = Concatenate ("INIT: H8DR is set to: ", \H8DR)
             }
         }
     }
