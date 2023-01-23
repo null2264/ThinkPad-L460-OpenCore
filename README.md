@@ -57,7 +57,7 @@ TODO
 ### ⚠️ Partially Working
 - WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm))  
   - Location and WiFi scan is currently broken, replace with itlwm+HeliPort for workaround. You may be able to fix it temporarily by running `sudo pkill airportd` in a terminal
-  - AirportItlwm refuses to show some WiFi forcing me to use itlwm+HeliPort
+  - WiFi sometimes doesn't show up, this could be caused by WLAN channel overlaps. When this happened try changing your Access Point's WLAN Channel to something else
 - Bluetooth  
   - Caused "Volume Hash Mismatch" error after waking from sleep, reboot to fix
   - Some Intel Bluetooth users reported that `sudo pkill bluetoothd` may fix this issue temporarily, but this doesn't work on my laptop. Bluetooth devices refuses to connect entirely
@@ -83,7 +83,6 @@ TODO
 
 ## 📋 TODO
 - [ ] Dump ACPI into this repo
-- [ ] Reuse AirportItlwm once it become stable
 
 ## 📂 Other Repositories
 - ThinkPad X1C6:
