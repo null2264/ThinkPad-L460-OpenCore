@@ -53,6 +53,8 @@ TODO
 - Audio + Combo Jack (using [OpenALC](https://github.com/acidanthera/AppleALC))
 - Sleep (Although it broke EC, specifically FN hotkeys, but sleep itselves working as intended)
 - VGA (is HDMI internally, so it's natively supported)
+- Wired Ethernet (using [Mausi](https://www.tonymacx86.com/resources/intelmausi.499/))
+  - You need to connect your Ethernet cable before turning on your laptop. After that it works perfectly
 
 ### ⚠️ Partially Working
 - WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm))  
@@ -74,10 +76,6 @@ TODO
   - I don't see a point to support SD Card Reader since it's usually have a really slow RW
 
 ### ❓ Not Tested
-- Wired Ethernet (using [Mausi](https://www.tonymacx86.com/resources/intelmausi.499/))
-  - Was working on Catalina
-  - Broken on Monterey (Probably forgot to update the Kext when updating to Monterey)
-  - Not tested on Ventura
 - MiniDP
   - Need MiniDP adapter since none of my devices use MiniDP
 
