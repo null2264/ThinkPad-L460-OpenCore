@@ -28,7 +28,7 @@ TODO
 
 > **Note**
 >
-> If you (still) can't login to iMessage you may need to Apple Support to unblacklist your AppleID (You can try opening the Message app from terminal to check the log to see if you get Customer Code error, which is an indication that your AppleID got blacklisted. [See more info here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#customer-code-error)
+> If you (still) can't login to iMessage you may need to contact Apple Support to unblacklist your AppleID (You can try opening the Message app from terminal to check the log to see if you're getting a Customer Code error, which is an indication that your AppleID got blacklisted. [See more info here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#customer-code-error))
 
 1. Download (or clone) [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) and run it in terminal
 2. Type `3` to generate SMBIOS, then press <kbd>Enter</kbd>
