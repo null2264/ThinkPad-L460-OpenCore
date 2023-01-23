@@ -30,7 +30,7 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "MCHCSBUS", 0x00000000)
         }
     }
 
-    Device (\_SB.PCI0.SMBU)
+    Scope (\_SB.PCI0.SMBU)
     {
         // Ref: https://github.com/khronokernel/DarwinDumped/blob/ed4ff5b/MacBookPro/MacBookPro13%2C3/ACPI%20Tables/DSL/DSDT.dsl#L6327~L6337
         Device (BUS0) {
