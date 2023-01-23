@@ -54,7 +54,7 @@ TODO
 - Sleep (Although it broke EC, specifically FN hotkeys, but sleep itselves working as intended)
 - VGA (is HDMI internally, so it's natively supported)
 - Wired Ethernet (using [Mausi](https://www.tonymacx86.com/resources/intelmausi.499/))
-  - You need to connect your Ethernet cable before turning on your laptop. After that it works perfectly
+  - If your connection keep disconnecting, you may need to connect your Ethernet cable before turning on your laptop atleast once. After that it should work perfectly fine even after unplugging and plugging the cable in again
 
 ### ⚠️ Partially Working
 - WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm))  
