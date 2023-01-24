@@ -57,8 +57,11 @@ TODO
   - If your connection keep disconnecting, you may need to connect your Ethernet cable before turning on your laptop atleast once. After that it should work perfectly fine even after unplugging and plugging the cable in again
 
 ### ⚠️ Partially Working
-- WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm))  
-  - Location and WiFi scan is currently broken, replace with itlwm+HeliPort for workaround. You may be able to fix it temporarily by running `sudo pkill airportd` in a terminal
+- WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm) or [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD))  
+  - You can't join hidden networks with AirportItlwm or AirPortOpenBSD. While itlwm+HeliPort can join hidden networks, you can't auto-join them
+  - Location and WiFi scan is currently broken. You may be able to fix it temporarily by running `sudo pkill airportd` in a terminal
+  - Replace AirportItlwm with itlwm+HeliPort for WiFi scan workaround
+  - You may also try [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD). It still have Location and WiFi scan problem, but it atleast loaded much sooner than AirportItlwm for me. But all known network will be detected as hidden network (Incase you cares about cosmetic things)
   - WiFi sometimes doesn't show up, this could be caused by WLAN channel overlaps. When this happened try changing your Access Point's WLAN Channel to something else
 - Bluetooth  
   - Caused "Volume Hash Mismatch" error after waking from sleep, reboot to fix
