@@ -55,6 +55,7 @@ TODO
 - VGA (is HDMI internally, so it's natively supported)
 - Wired Ethernet (using [Mausi](https://www.tonymacx86.com/resources/intelmausi.499/))
   - If your connection keep disconnecting, you may need to connect your Ethernet cable before turning on your laptop atleast once. After that it should work perfectly fine even after unplugging and plugging the cable in again
+- USB Tethering via [HoRNDIS](https://github.com/jwise/HoRNDIS)
 
 ### ⚠️ Partially Working
 - WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm) or [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD))  
@@ -99,6 +100,7 @@ TODO
 - [@benbender](https://github.com/benbender) for SSDT-Sleep that I adapted to work with L460
 - [@corpnewt](https://github.com/corpnewt) for [gibMacOS](https://github.com/corpnewt/gibMacOS) and [MountEFI](https://github.com/corpnewt/MountEFI).
 - [@dortania](https://github.com/dortania) for their amazing [guide](https://dortania.github.io)
+- [@jwise](https://github.com/jwise) for [HoRNDIS](https://github.com/jwise/HoRNDIS)
 - [@zhen-zen](https://github.com/zhen-zen) for [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 - [@zxystd](https://github.com/zxystd) for [itlwm](https://github.com/OpenIntelWireless/itlwm)
 - [r/hackintosh](https://www.reddit.com/r/hackintosh) community for helping me find solution to various issue I came across
