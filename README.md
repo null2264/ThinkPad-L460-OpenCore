@@ -66,7 +66,7 @@ TODO
 - EC (Broken after sleep)
   - FN hotkeys completely broken after sleep, reboot to fix  
     \_Qxx won't fires at all after sleep causes FN hotkeys to not working
-  - Battery status is delayed
+  - Battery status is delayed after sleep (could be because battery status update is handled by \_Qxx but because it never fires it instead relies on battery capacity update)
 
 ### ❌ Not Working
 - DRM
