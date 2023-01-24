@@ -61,7 +61,7 @@ TODO
   - You can't join hidden networks with AirportItlwm or AirPortOpenBSD. While itlwm+HeliPort can join hidden networks, you can't auto-join them
   - Location and WiFi scan is currently broken. You may be able to fix it temporarily by running `sudo pkill airportd` in a terminal
   - Replace AirportItlwm with itlwm+HeliPort for WiFi scan workaround
-  - You may also try [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD). It still have Location and WiFi scan problem, but it atleast loaded much sooner than AirportItlwm for me. But all known network will be detected as hidden network (Incase you cares about cosmetic things)
+  - You may also try [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD). It still have Location and WiFi scan problem, but it loads much faster than AirportItlwm. But all known network will be detected as hidden network (Incase you cares about cosmetic things)
   - WiFi sometimes doesn't show up, this could be caused by WLAN channel overlaps. When this happened try changing your Access Point's WLAN Channel to something else
 - Bluetooth  
   - Caused "Volume Hash Mismatch" error after waking from sleep, reboot to fix
@@ -77,6 +77,7 @@ TODO
   - Some iGPU-only Laptop users reported that `unfairgva=4` fixed it, you may test it on your device, but this workaround doesn't seems to be working on my Laptop
 - SD Card Reader
   - I don't see a point to support SD Card Reader since it's usually have a really slow RW
+  - If you need SD Card Reader you can try adding [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx) to your EFI
 
 ### ❓ Not Tested
 - MiniDP
@@ -93,6 +94,7 @@ TODO
   - [simprecicchiani/ThinkPad-T460s-macOS-OpenCore](https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore)
 
 ## ℹ️ Credits
+- [@a565109863](https://gitee.com/a565109863) for [AirPortOpenBSD](https://gitee.com/a565109863/AirPortOpenBSD)
 - [@acidanthera](https://github.com/acidanthera) for maintaining and developing a lot of amazing Kexts
 - [@benbender](https://github.com/benbender) for SSDT-Sleep that I adapted to work with L460
 - [@corpnewt](https://github.com/corpnewt) for [gibMacOS](https://github.com/corpnewt/gibMacOS) and [MountEFI](https://github.com/corpnewt/MountEFI).
@@ -100,3 +102,6 @@ TODO
 - [@zhen-zen](https://github.com/zhen-zen) for [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 - [@zxystd](https://github.com/zxystd) for [itlwm](https://github.com/OpenIntelWireless/itlwm)
 - [r/hackintosh](https://www.reddit.com/r/hackintosh) community for helping me find solution to various issue I came across
+
+## External Links
+- [LENOVO ThinkPad L460 Technical Specs PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L460/ThinkPad_L460_Spec.PDF)
