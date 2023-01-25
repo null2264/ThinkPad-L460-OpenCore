@@ -46,10 +46,12 @@ TODO
 > Your experience may vary
 
 ### ✔️ Working
-- GPU (Require GfxYTile to fix flickers and glitches, but acceleration working as intended)  
-  Glitches still sometimes happened under certain circumstances such as:
-  - Using HiDPI
-  - Connect to an external monitor with (native) resolution under 1080 (This need to be tested further as glitches seems to only happened when I use BetterDisplay)
+- GPU
+  - Glitches and Flickers, can be fixed by adding `AAPL,GfxYTile` property. It still sometimes happened under certain circumstances such as:
+    - Using HiDPI
+    - Connect to an external monitor with (native) resolution under 1080 (This need to be tested further as glitches seems to only happened when I use BetterDisplay)
+  - KabyLake's color-banding issue, the only fixes related to this require spoofing GPU to SkyLake
+    - Some says injecting fake EDID could fix this issue, but it doesn't work for me
 - Audio + Combo Jack (using [OpenALC](https://github.com/acidanthera/AppleALC))
 - Sleep (Although it broke EC, specifically FN hotkeys, but sleep itselves working as intended)
 - VGA (is HDMI internally, so it's natively supported)
