@@ -407,7 +407,7 @@
 				<key>AAPL,GfxYTile</key>
 				<data>AQAAAA==</data>
 				<key>AAPL,ig-platform-id</key>
-				<data>AAAbWQ==</data>
+				<data>AAAWWQ==</data>
 				<key>device-id</key>
 				<data>FlkAAA==</data>
 				<key>framebuffer-patch-enable</key>
@@ -418,12 +418,12 @@
 				<data>AACQAA==</data>
 				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
-				<key>framebuffer-con1-alldata</key>
-				<data>AgQKAAAIAACHAQAA</data>
+				<key>framebuffer-con1-type</key>
+				<data>AAQAAA==</data>
 				<key>framebuffer-con2-enable</key>
 				<data>AQAAAA==</data>
-				<key>framebuffer-con2-alldata</key>
-				<data>AwYKAAAEAACHAQAA</data>
+				<key>framebuffer-con2-type</key>
+				<data>AAgAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1F,0x3)</key>
 			<dict>
