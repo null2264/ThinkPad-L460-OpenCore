@@ -44,23 +44,28 @@ TODO
 > **Note**
 >
 > Your experience may vary
+>
+> - Working = Doesn't affecting workflow that much or straight up working out-of-the-box
+> - Partially Working = Working but sometimes require reboot to fix
+> - Not Working = Doesn't work at all or delibrately disabled by me
+> - Not Tested = Can't be tested at the moment
 
 ### ✔️ Working
-- GPU
+- CPU (Power Managament)
+- GPU (Acceleration)
   - Glitches and Flickers, can be fixed by adding `AAPL,GfxYTile` property. It still sometimes happened under certain circumstances such as:
     - Using HiDPI
-    - Connect to an external monitor with (native) resolution under 1080 (This need to be tested further as glitches seems to only happened when I use BetterDisplay)
-  - KabyLake's color-banding issue, the only fixes related to this require spoofing GPU to SkyLake
+    - Connect to an external monitor (Maybe because my monitor's (native) resolution is under 1080, I don't have a 1080p monitor so I can't test it further)
+  - KabyLake's color-banding issue, the only fixes related to this require spoofing GPU to SkyLake (My external monitor doesn't have this issue, so maybe it's hardware)
     - Some says injecting fake EDID could fix this issue, but it doesn't work for me
 - Audio + Combo Jack (using [OpenALC](https://github.com/acidanthera/AppleALC))
-- Sleep (Although it broke EC, specifically FN hotkeys, but sleep itselves working as intended)
-- VGA (is HDMI internally, so it's natively supported)
-- Wired Ethernet (using [Mausi](https://www.tonymacx86.com/resources/intelmausi.499/))
-  - If your connection keep disconnecting, you may need to connect your Ethernet cable before turning on your laptop atleast once. After that it should work perfectly fine even after unplugging and plugging the cable in again
+- VGA (is DP internally, so it's natively supported)
+- Wired Ethernet (using [Mausi](https://www.tonymacx86.com/resources/intelmausi.499/))  
+  **Note**: If your connection keep disconnecting, you may need to connect your Ethernet cable before turning on your laptop atleast once. After that it should work perfectly fine even after unplugging and plugging the cable in again
 - USB Tethering via [HoRNDIS](https://github.com/jwise/HoRNDIS)
 
 ### ⚠️ Partially Working
-- WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm) or [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD))  
+- WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm) or [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD))
   - You can't join hidden networks with AirportItlwm or AirPortOpenBSD. While itlwm+HeliPort can join hidden networks, you can't auto-join them
   - Location and WiFi scan is currently broken. You may be able to fix it temporarily by running `sudo pkill airportd` in a terminal
   - Replace AirportItlwm with itlwm+HeliPort for WiFi scan workaround
@@ -69,10 +74,8 @@ TODO
 - Bluetooth  
   - Caused "Volume Hash Mismatch" error after waking from sleep, reboot to fix
   - Some Intel Bluetooth users reported that `sudo pkill bluetoothd` may fix this issue temporarily, but this doesn't work on my laptop. Bluetooth devices refuses to connect entirely
-- EC (Broken after sleep)
-  - FN hotkeys completely broken after sleep, reboot to fix  
-    \_Qxx won't fires at all after sleep causes FN hotkeys to not working
-  - Battery status is delayed after sleep (could be because battery status update is handled by \_Qxx but because it never fires it instead relies on battery capacity update)
+- Sleep (S3 and S4 confirmed to be working)
+  - Broke \_Qxx EC Query events, a common ThinkPad E-series and L-series issue, reboot to fix
 
 ### ❌ Not Working
 - DRM
@@ -107,5 +110,5 @@ TODO
 - [@zxystd](https://github.com/zxystd) for [itlwm](https://github.com/OpenIntelWireless/itlwm)
 - [r/hackintosh](https://www.reddit.com/r/hackintosh) community for helping me find solution to various issue I came across
 
-## External Links
+## 🔗 External Links
 - [LENOVO ThinkPad L460 Technical Specs PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L460/ThinkPad_L460_Spec.PDF)
