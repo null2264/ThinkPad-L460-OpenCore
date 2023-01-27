@@ -82,12 +82,16 @@ TODO
     - Connect to an external monitor (Maybe because my monitor's (native) resolution is under 1080, I don't have a 1080p monitor so I can't test it further)
   - KabyLake's color-banding issue, the only fixes related to this require spoofing GPU to SkyLake (My external monitor doesn't have this issue, so maybe it's hardware)
     - Some says injecting fake EDID could fix this issue, but it doesn't work for me
+- Restart + S3/S4 Sleep + Shutdown
 - Audio + Combo Jack (using [OpenALC](https://github.com/acidanthera/AppleALC))
-- VGA (is DP internally, so it's natively supported)
+- Brightness (and brightness control hotkeys)
+- Trackpad + Trackpoint + Clickpad
 - Wired Ethernet (using [Mausi](https://www.tonymacx86.com/resources/intelmausi.499/))  
   **Note**: If your connection keep disconnecting, you may need to connect your Ethernet cable before turning on your laptop atleast once. After that it should work perfectly fine even after unplugging and plugging the cable in again
-- USB Tethering via [HoRNDIS](https://github.com/jwise/HoRNDIS)
 - Bluetooth (Try [Bluetooth Workaround](#bluetooth-workaround) if you get "Volume Hash Mismatch" error after waking from sleep, if it doesn't work you can always reboot to fix it)
+- USB Ports
+  - USB Tethering via [HoRNDIS](https://github.com/jwise/HoRNDIS)
+- VGA (is DP internally, so it's natively supported)
 
 ### ⚠️ Partially Working
 - WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm) or [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD))
@@ -96,16 +100,14 @@ TODO
   - Replace AirportItlwm with itlwm+HeliPort for WiFi scan workaround
   - You may also try [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD). It still have Location and WiFi scan problem, but it loads much faster than AirportItlwm. But all known network will be detected as hidden network (Incase you cares about cosmetic things)
   - WiFi sometimes doesn't show up, this could be caused by WLAN channel overlaps. When this happened try changing your Access Point's WLAN Channel to something else
-- Sleep (S3 and S4 confirmed to be working)
-  - Broke \_Qxx EC Query events, a common ThinkPad E-series and L-series issue, reboot to fix
+- \_Qxx EC Query not firing after sleep, caused FN Hotkeys and some battery update functions to stop working, reboot is required to fix it. A common issue on E-Series and L-series ThinkPad
+- DRM
+  - iGPU-only DRM is completely broken, but you still can use third-party browsers to watch DRM videos
+  - Some iGPU-only Laptop users reported that `unfairgva=4` fixed it, you may test it on your device, but this workaround doesn't seems to be working on my Laptop
 
 ### ❌ Not Working
-- DRM
-  - iGPU-only setup is completely broken, use third-party browsers to watch DRM videos
-  - Some iGPU-only Laptop users reported that `unfairgva=4` fixed it, you may test it on your device, but this workaround doesn't seems to be working on my Laptop
-- SD Card Reader
-  - I don't see a point to support SD Card Reader since it's usually have a really slow RW
-  - If you need SD Card Reader you can try adding [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx) to your EFI
+- SD Card Reader (Disabled on BIOS)
+  - If you need SD Card Reader you can try adding [Sinetek-rtsx](https://github.com/cholonam/Sinetek-rtsx) or [RealtekCardReader](https://github.com/0xFireWolf/RealtekCardReader) to your EFI
 
 ### ❓ Not Tested
 - MiniDP
