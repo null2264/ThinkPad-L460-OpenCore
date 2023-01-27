@@ -44,19 +44,19 @@ TODO
 #### Bluetooth Workaround
 
 1. Get your Bluetooth Controller's MAC Address,
-   - Method 1:
+   - Method 1:  
+     Run this command in a terminal and copy the result:
+     ```zsh
+     system_profiler SPBluetoothDataType | grep "Address:" | head -1 | sed "s/ *Address: \(.*\)/\1/g"
+     ```
+   - Method 2:
       1. Click the Apple logo at the top-left corner then click About This Mac
       2. Go to System Report,
          - On Monterey or older, just click System Report
          - On Ventura or newer, click More Info, scroll all the way down then click System Report
       3. Navigate to Bluetooth menu (Hardware > Bluetooth)
       4. Under Bluetooth Controller copy the MAC Address
-   - Method 2:  
-     Run this command in a terminal and copy the result:
-     ```zsh
-     system_profiler SPBluetoothDataType | grep "Address:" | head -1 | sed "s/ *Address: \(.*\)/\1/g"
-     ```
-2. Add this to line to `/etc/zshenv` (or `/etc/bashrc`) file:
+2. Add this line to the `/etc/zshenv` (or `/etc/bashrc`) file:
    ```zsh
    export BT_DEVICE_ADDRESS="PASTE:YOUR:MAC:ADDRESS:HERE"
    ```
