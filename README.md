@@ -49,7 +49,7 @@ TODO
    - On Ventura or newer, click More Info, scroll all the way down then click System Report
 3. Navigate to Bluetooth menu (Hardware > Bluetooth)
 4. Under Bluetooth Controller copy the MAC Address
-5. Run `export BT_DEVICE_ADDRESS="PASTE:YOUR:MAC:ADDRESS:HERE"` in a terminal and/or add this to line to `/etc/zshenv` (or `/etc/bashrc`) file:
+5. Add this to line to `/etc/zshenv` (or `/etc/bashrc`) file:
    ```zsh
    export BT_DEVICE_ADDRESS="PASTE:YOUR:MAC:ADDRESS:HERE"
    ```
