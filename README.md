@@ -22,7 +22,9 @@
 
 TODO
 
-### Post-Install Setup
+### Tips
+
+> Useful configuration you can do after you successfully installed macOS
 
 #### Enable Apple Services
 
@@ -38,6 +40,21 @@ TODO
 7. Replace `ROM` with your MAC Address (`System Preferences -> Network -> Ethernet -> Advanced -> Hardware -> MAC Address`, then remove all the colons `:`). Or you can also try using a real Apple MAC Address
 8. Save and Reboot
 9. Check the Serial Number validity. Repeat step 5 and choose different result (or generate new set of SMBIOS) if you saw `Valid Purchase Date`
+
+#### Bluetooth Workaround
+
+1. Click the Apple logo at the top-left corner then click About This Mac
+2. Go to System Report,
+   - On Monterey or older, just click System Report
+   - On Ventura or newer, click More Info, scroll all the way down then click System Report
+3. Navigate to Bluetooth menu (Hardware > Bluetooth)
+4. Under Bluetooth Controller copy the MAC Address
+5. Run `export BT_DEVICE_ADDRESS="PASTE:YOUR:MAC:ADDRESS:HERE"` in a terminal and/or add this to line to `/etc/zshenv` (or `/etc/bashrc`) file:
+   ```zsh
+   export BT_DEVICE_ADDRESS="PASTE:YOUR:MAC:ADDRESS:HERE"
+   ```
+6. Reboot to apply the changes
+7. Get into S3/S4 sleep then try connecting to a device via Bluetooth
 
 ## 🔧 Status
 
@@ -63,6 +80,7 @@ TODO
 - Wired Ethernet (using [Mausi](https://www.tonymacx86.com/resources/intelmausi.499/))  
   **Note**: If your connection keep disconnecting, you may need to connect your Ethernet cable before turning on your laptop atleast once. After that it should work perfectly fine even after unplugging and plugging the cable in again
 - USB Tethering via [HoRNDIS](https://github.com/jwise/HoRNDIS)
+- Bluetooth (Try [Bluetooth Workaround](#bluetooth-workaround) if you get "Volume Hash Mismatch" error after waking from sleep, if it doesn't work you can always reboot to fix it)
 
 ### ⚠️ Partially Working
 - WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm) or [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD))
@@ -71,9 +89,6 @@ TODO
   - Replace AirportItlwm with itlwm+HeliPort for WiFi scan workaround
   - You may also try [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD). It still have Location and WiFi scan problem, but it loads much faster than AirportItlwm. But all known network will be detected as hidden network (Incase you cares about cosmetic things)
   - WiFi sometimes doesn't show up, this could be caused by WLAN channel overlaps. When this happened try changing your Access Point's WLAN Channel to something else
-- Bluetooth  
-  - Caused "Volume Hash Mismatch" error after waking from sleep, reboot to fix
-  - Some Intel Bluetooth users reported that `sudo pkill bluetoothd` may fix this issue temporarily, but this doesn't work on my laptop. Bluetooth devices refuses to connect entirely
 - Sleep (S3 and S4 confirmed to be working)
   - Broke \_Qxx EC Query events, a common ThinkPad E-series and L-series issue, reboot to fix
 
