@@ -17,7 +17,6 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "THKP", 0x00000000)
 
     External (_SB_.XINI, MethodObj) // 0 Arguments
 
-    External (HPTE, FieldUnitObj)
     External (LNUX, FieldUnitObj) // Variable set with "Linux" or "FreeBSD"
     External (WNTF, FieldUnitObj) // Variable set with "Windows 2001" or "Microsoft Windows NT"
     External (OSYS, FieldUnitObj)
@@ -65,9 +64,6 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "THKP", 0x00000000)
                 Debug = "INIT: Entering _INI"
                 Debug = Concatenate ("INIT: Initial OSYS is: ", \OSYS)
 
-                // Disable HPET, not needed for most modern systems
-                HPTE = Zero
-
                 // Mute LED workaround, judging from my DSDT... doesn't seem to be useful, need further testing
                 LNUX = One
 
@@ -78,9 +74,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "THKP", 0x00000000)
                 OSYS = 0x07DF
                 Debug = Concatenate ("INIT: OSYS is set to: ", \OSYS)
 
-                // [TEST NEEDED] FN-key fixed for E14-15, maybe it'll work for L460 too?
-                H8DR = One
-                Debug = Concatenate ("INIT: H8DR is set to: ", \H8DR)
+                Debug = Concatenate ("INIT: H8DR is: ", \H8DR)
             }
         }
     }
