@@ -1,13 +1,13 @@
 /* vim: ts=4 sw=4 et
  *
- * Helper SSDT, implements native Mac stuff
+ * Config SSDT for VoodooRMI
  */
 
 DefinitionBlock ("", "SSDT", 2, "GWYD", "RMI", 0)
 {
-    External (_SB.PCI0.SBUS, DeviceObj)
+    External (_SB.PCI0.SMBU, DeviceObj)
 
-    Scope (\_SB.PCI0.SBUS)
+    Scope (\_SB.PCI0.SMBU)
     {
         Name (RCFG, Package()
         {
