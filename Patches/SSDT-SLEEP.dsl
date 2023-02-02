@@ -19,18 +19,9 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
     // From SSDT-DARWIN.dsl
     External (OSDW, MethodObj) // 0 Arguments
 
-    // Sleep config from BIOS
-    External (S0ID, FieldUnitObj) // BIOS-S0 enabled, "Windows Modern Standby", not used by L460
-
-    Name (DIEN, Zero) // DeepIdle (ACPI-S0) enabled
-    Name (INIB, One) // Initial BootUp
-
     If (OSDW ())
     {
         Debug = "SLEEP: Enabling comprehensive S3-patching..."
-
-        // Disable S0 for now
-        S0ID = Zero
     }
 
     Name (SLTP, Zero)
@@ -38,7 +29,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
     // Save sleep-state in SLTP on transition. Like a genuine Mac.
     Method (_TTS, 1, NotSerialized)  // _TTS: Transition To State
     {
-        Debug = Concatenate ("SLEEP:_TTS() called with Arg0 = ", Arg0)
+        Debug = Concatenate ("SLEEP: _TTS () called with Arg0 = ", Arg0)
 
         SLTP = Arg0
     }
@@ -77,11 +68,11 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
         // Fix sleep
         Method (SPTS, 0, NotSerialized)
         {
-            Debug = "SLEEP:SPTS"
+            Debug = "SLEEP: SPTS"
 
             If (\LIDS != \_SB.PCI0.LPC.EC.HPLD)
             {
-                Debug = "SLEEP:SPTS - lid-state unsync."
+                Debug = "SLEEP: SPTS - lid-state unsync."
 
                 \LIDS = \_SB.PCI0.LPC.EC.HPLD
                 \_SB.PCI0.GFX0.CLID = LIDS
@@ -100,7 +91,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
 
             If (\LIDS != \_SB.PCI0.LPC.EC.HPLD)
             {
-                Debug = "SLEEP:SWAK - lid-state unsync."
+                Debug = "SLEEP: SWAK - lid-state unsync."
 
                 \LIDS = \_SB.PCI0.LPC.EC.HPLD
                 \_SB.PCI0.GFX0.CLID = LIDS
@@ -125,7 +116,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
         {
             Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
             {
-                Debug = Concatenate ("SLEEP:_PTS called - Arg0 = ", Arg0)
+                Debug = Concatenate ("SLEEP: _PTS () called with Arg0 = ", Arg0)
 
                 // On sleep
                 If (OSDW () && (Arg0 < 0x05))
@@ -151,7 +142,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
             // Patch _WAK to fire missing LID-Open event and update AC-state
             Method (_WAK, 1, Serialized)
             {
-                Debug = Concatenate ("SLEEP:_WAK - called Arg0: ", Arg0)
+                Debug = Concatenate ("SLEEP: _WAK () called with Arg0: ", Arg0)
 
                 // On Wake
                 If (OSDW () && (Arg0 < 0x05))
@@ -163,49 +154,6 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
 
                 Return (Local0)
             }
-        }
-    }
-
-
-    // Handles sleep/wake on ACPI-S0-DeepIdle
-    Scope (_SB.PCI0.LPC)
-    {
-        Method (_PS0, 0, Serialized)
-        {
-            If (OSDW () && DIEN == One && INIB == Zero)
-            {
-                \SWAK ()
-            }
-
-            If (INIB == One)
-            {
-                INIB = Zero
-            }
-        }
-
-        Method (_PS3, 0, Serialized)
-        {
-            If (OSDW () && DIEN == One)
-            {
-                \SPTS ()
-            }
-        }
-    }
-
-
-    Scope (_SB)
-    {
-        // Enable ACPI-S0-DeepIdle
-        Method (LPS0, 0, NotSerialized)
-        {
-            If (DIEN == One)
-            {
-                Debug = "SLEEP: Enable S0-Sleep / DeepSleep"
-            }
-
-            // If S0ID is enabled, enable deep-sleep in OSX. Can be set above.
-            // Return (S0ID)
-            Return (DIEN)
         }
     }
 }

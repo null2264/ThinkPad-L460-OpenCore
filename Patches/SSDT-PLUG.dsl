@@ -16,7 +16,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "PLUG", 0x00000000)
     {
         Method (_DSM, 4, NotSerialized)
         {
-            Debug = "Writing plugin-type to Registry!"
+            Debug = "PLUG: Writing plugin-type to Registry!"
             Local0 = Package (0x02)
                 {
                     "plugin-type", 
