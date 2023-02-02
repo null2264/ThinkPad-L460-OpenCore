@@ -41,6 +41,25 @@ TODO
 8. Save and Reboot
 9. Check the Serial Number validity. Repeat step 5 and choose different result (or generate new set of SMBIOS) if you saw `Valid Purchase Date`
 
+#### Disable S3/S4
+
+This is the stupid simple way to fix sleep related issues, simply disable S3/S4:
+
+```zsh
+sudo pmset -a hibernatemode 0
+sudo pmset -a proximitywake 0
+sudo pmset -a standbydelayhigh 0
+sudo pmset -a ttyskeepawake 0
+sudo pmset -a gpuswitch 0
+sudo pmset -a halfdim 0
+sudo pmset -a womp 0
+sudo pmset -a acwake 0
+sudo pmset -a networkoversleep 0
+sudo pmset -a tcpkeepalive 0
+```
+
+I personally don't do this since it's no fun but also doesn't actually fix the issue, just disabling some problematic features
+
 #### Bluetooth Workaround
 
 1. Get your Bluetooth Controller's MAC Address,
