@@ -32,10 +32,10 @@ restored in \_WAK. But all of it led to nothing.
 
 After search around the internet I came across [a
 repo](https://github.com/masksshow/Thinkpad-E14-15-AMD-Gen-2-FIX) that claim to
-fix FN-keys on E14. Could be useful, and the "fix" seems easy enough, all they
-did is set H8DR's value to One instead of Zero. Unfortunately this still
-doesn't fix my issue, so I decided to look deeper and found an attached link to
-[a
+fix FN-keys for E14 on Linux, I thought it may work on macOS for L460, the "fix"
+seems easy enough, all they did is set H8DR's value to One instead of Zero.
+Unfortunately this still doesn't fix my issue, so I decided to look deeper and
+found an attached link to [a
 forum](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-Fn-keys-not-working-Thinkpad-E14-AMD-Gen-2/m-p/5027791?page=8).
 Sadly that also led to nothing, as the fix for E14 is a BIOS Update. I did try
 updating my BIOS to the latest version, still doesn't fix it.
