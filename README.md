@@ -111,14 +111,17 @@ I personally don't do this since it's no fun but also doesn't actually fix the i
 - USB Ports
   - USB Tethering via [HoRNDIS](https://github.com/jwise/HoRNDIS)
 - VGA (is DP internally, so it's natively supported)
+- WiFi (using [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD) or [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm))
+  - Can't connect to WiFi with hidden SSID
+    - Use AirPortOpenBSD or itlwm+HeliPort instead to fix this
+  - Location and WiFi scan is currently broken
+    - Try running `sudo pkill airportd` in a terminal to fix WiFi scan temporarily
+    - Try using AirPortOpenBSD instead, v2.3.0 seems to partially fix WiFi scan
+      (By allowing you to connect to "hidden" wifi)
+    - You may also try replacing AirportItlwm with itlwm+HeliPort to fix the WiFi scan
+  - WiFi sometimes doesn't show up, this could be caused by WLAN channel overlaps. When this happened try changing your Access Point's WLAN Channel to something else, or you can try clicking "other" and manually connect to the WiFi
 
 ### ⚠️ Partially Working
-- WiFi (using [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm) or [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD))
-  - You can't join hidden networks with AirportItlwm or AirPortOpenBSD. While itlwm+HeliPort can join hidden networks, you can't auto-join them
-  - Location and WiFi scan is currently broken. You may be able to fix it temporarily by running `sudo pkill airportd` in a terminal
-  - Replace AirportItlwm with itlwm+HeliPort for WiFi scan workaround
-  - You may also try [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD). It still have Location and WiFi scan problem, but it loads much faster than AirportItlwm. But all known network will be detected as hidden network (Incase you cares about cosmetic things)
-  - WiFi sometimes doesn't show up, this could be caused by WLAN channel overlaps. When this happened try changing your Access Point's WLAN Channel to something else
 - \_Qxx EC Query not firing after sleep, caused FN Hotkeys and some battery update functions to stop working, reboot is required to fix it. A common issue on E-Series and L-series ThinkPad
 - DRM
   - iGPU-only DRM is completely broken, but you still can use third-party browsers to watch DRM videos
