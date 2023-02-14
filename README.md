@@ -99,6 +99,7 @@ I personally don't do this since it's no fun but also doesn't actually fix the i
   - Glitches and Flickers, can be fixed by adding `AAPL,GfxYTile` property. It still sometimes happened under certain circumstances such as:
     - Using HiDPI
     - Connect to an external monitor (Maybe because my monitor's (native) resolution is under 1080, I don't have a 1080p monitor so I can't test it further)
+    - Using resolution higher or lower than the internal monitor native resolution
   - KabyLake's color-banding issue, the only fixes related to this require spoofing GPU to SkyLake (My external monitor doesn't have this issue, so maybe it's hardware)
     - Some says injecting fake EDID could fix this issue, but it doesn't work for me
 - Restart + S3/S4 Sleep + Shutdown
@@ -114,12 +115,15 @@ I personally don't do this since it's no fun but also doesn't actually fix the i
 - WiFi (using [AirPortOpenBSD](https://github.com/a565109863/AirPortOpenBSD) or [AirportItlwm/itlwm](https://github.com/OpenIntelWireless/itlwm))
   - Can't connect to WiFi with hidden SSID
     - Use AirPortOpenBSD or itlwm+HeliPort instead to fix this
-  - Location and WiFi scan is currently broken
+    - Sometimes it doesn't want to connect, I recommend not using hidden SSID at all when you don't actuallly need it
+  - Location and WiFi scan is currently broken for Ventura
     - Try running `sudo pkill airportd` in a terminal to fix WiFi scan temporarily
-    - Try using AirPortOpenBSD instead, v2.3.0 seems to partially fix WiFi scan
-      (By allowing you to connect to "hidden" wifi)
-    - You may also try replacing AirportItlwm with itlwm+HeliPort to fix the WiFi scan
-  - WiFi sometimes doesn't show up, this could be caused by WLAN channel overlaps. When this happened try changing your Access Point's WLAN Channel to something else, or you can try clicking "other" and manually connect to the WiFi
+    - Try using itlwm+HeliPort instead of AirportItlwm to fix the WiFi scan
+    - Try using AirPortOpenBSD instead of AirportItlwm, v2.3.0 seems to fix this entirely
+  - WiFi sometimes doesn't show up, this could be caused by WLAN channel overlaps
+    - Try changing your Access Point's WLAN Channel to something else to fix it
+    - (Only for **AirPortOpenBSD - v2.3.0 or newer**) You can also try clicking "other" and manually connect to the WiFi
+      - If it says "network couldn't be found", try turning off and on again the WiFi (your device's wifi connect and/or your access point), then try again
 
 ### ⚠️ Partially Working
 - \_Qxx EC Query not firing after sleep, caused FN Hotkeys and some battery update functions to stop working, reboot is required to fix it. A common issue on E-Series and L-series ThinkPad
