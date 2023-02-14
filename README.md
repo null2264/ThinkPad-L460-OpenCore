@@ -120,8 +120,10 @@ I personally don't do this since it's no fun but also doesn't actually fix the i
     - Try running `sudo pkill airportd` in a terminal to fix WiFi scan temporarily
     - Try using itlwm+HeliPort instead of AirportItlwm to fix the WiFi scan
     - Try using AirPortOpenBSD instead of AirportItlwm, v2.3.0 seems to fix this entirely
+      - If the wifi scan got stuck, you can just turn on and off the wifi connection on macOS
   - WiFi sometimes doesn't show up, this could be caused by WLAN channel overlaps
     - Try changing your Access Point's WLAN Channel to something else to fix it
+    - (Only for **AirPortOpenBSD - v2.3.0 or newer**) You try turning on and off the wifi connection on macOS
     - (Only for **AirPortOpenBSD - v2.3.0 or newer**) You can also try clicking "other" and manually connect to the WiFi
       - If it says "network couldn't be found", try turning off and on again the WiFi (your device's wifi connect and/or your access point), then try again
 
