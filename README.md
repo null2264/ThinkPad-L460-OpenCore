@@ -1,6 +1,6 @@
 # Hackintosh for Thinkpad L460
 
-> **Warning**
+> [!WARNING]
 >
 > I am not responsible for any damages you may cause
 >
@@ -28,7 +28,7 @@ TODO
 
 #### Enable Apple Services
 
-> **Note**
+> [!NOTE]
 >
 > If you (still) can't login to iMessage you may need to contact Apple Support to unblacklist your AppleID (You can try opening the Message app from terminal to check the log to see if you're getting a Customer Code error, which is an indication that your AppleID got blacklisted. [See more info here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#customer-code-error))
 
@@ -90,7 +90,7 @@ until it reboot itself.
 
 ## 🔧 Status
 
-> **Note**
+> [!NOTE]
 >
 > Your experience may vary
 >
