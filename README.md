@@ -82,6 +82,12 @@ I personally don't do this since it's no fun but also doesn't actually fix the i
 3. Reboot to apply the changes
 4. Get into S3/S4 sleep then try connecting to a device via Bluetooth
 
+#### Ventura 13.x Reboot Into Recovery
+
+Not sure what happened here, but ResetNVRAM seems to fix this issue, if it
+seems like your hackintosh is stuck on Apple logo with progressbar, just wait
+until it reboot itself.
+
 ## 🔧 Status
 
 > **Note**
