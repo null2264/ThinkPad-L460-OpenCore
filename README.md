@@ -4,9 +4,11 @@
 >
 > I am not responsible for any damages you may cause
 >
-> This repository's main goal is to document my accomplishment, issues, and solutions I found when making this EFI. It is not meant to provide a out-of-the-box experience on doing hackintosh! If you're new to Hackintosh please make your own EFI by following [Dortania's Guide](https://dortania.github.io/) instead
+> This repository's main goal is to document my hackintosh journey. It is not meant to provide an out-of-the-box experience on doing hackintosh! If you're new to Hackintosh please make your own EFI by following [Dortania's Guide](https://dortania.github.io/) instead
 >
-> If you insist on using my EFI, use it with your own risk, you may report issues related to patches that you came across, but I won't give any support on installation issues
+> If you insist on using my EFI, use it with your own risk, please note that I will **NOT** provide any support
+>
+> I am not responsible for any damages you may cause
 
 ## 💻 Hardware
 - CPU: Intel Core i5-6300U
@@ -20,7 +22,21 @@
 
 ### BIOS Config
 
-TODO
+| Menu     |                   |                                 | Setting     |
+| -------- | ----------------- | ------------------------------- | ----------- |
+| Config   | USB               | UEFI BIOS Support               | `Enable`    |
+|          | Power             | Intel SpeedStep Technology      | `Enable`    |
+|          |                   | CPU Power Management            | `Enable`    |
+| Security | Security Chip     |                                 | `Disable`   |
+|          | Memory Protection | Execution Prevention            | `Enable`    |
+|          | Virtualization    | Intel Virtualization Technology | `Enable`    |
+|          |                   | Intel VT-d Feature              | `Enable`    |
+|          | Anti-Theft        | Computrace                      | `Disable`   |
+|          | Secure Boot       |                                 | `Disable`   |
+|          | Intel SGX         |                                 | `Disable`   |
+|          | Device Guard      |                                 | `Disable`   |
+| Startup  | UEFI/Legacy Boot  |                                 | `UEFI Only` |
+|          | CSM Support       |                                 | `No`        |
 
 ### Tips
 
@@ -131,8 +147,9 @@ until it reboot itself.
 
 ### ⚠️ Partially Working
 - \_Qxx EC Query not firing after sleep, caused FN Hotkeys and some battery update functions to stop working, reboot is required to fix it. A common issue on E-Series and L-series ThinkPad
+  - After some testing, this seems to be a firmware issue
 - DRM
-  - iGPU-only DRM is completely broken, but you still can use third-party browsers to watch DRM videos
+  - iGPU-only DRM is completely broken, use browser with Widevine DRM instead
   - Some iGPU-only Laptop users reported that `unfairgva=4` fixed it, you may test it on your device, but this workaround doesn't seems to be working on my Laptop
 
 ### ❌ Not Working
