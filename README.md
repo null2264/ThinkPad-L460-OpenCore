@@ -104,6 +104,24 @@ Not sure what happened here, but ResetNVRAM seems to fix this issue, if it
 seems like your hackintosh is stuck on Apple logo with progressbar, just wait
 until it reboot itself.
 
+#### Reducing itlwm and/or IntelBluetoothFirmware Kext's filesize
+
+- Go to either of these repo:
+  - https://github.com/null2264/itlwm
+  - https://github.com/null2264/IntelBluetoothFirmware
+- Click "Use this template" and wait for your repo to be ready
+- Make sure Actions is enabled on the repo
+- Edit `.github/workflows/main.yml` file, find "Delete unused firmware"
+- Replace `ibt-11-5` or `iwm-8000C` with your card
+- To retrieve the Kext:
+  - IntelBluetoothFirmware:
+    - Go to `Actions` tab
+    - Find latest workflow (make sure it's completed, indicated by a checkmark), click it
+    - You'll see your kext in "Artifacts" section
+  - Itlwm:
+    - Go to `Releases` page (should be on the sidebar, or just append `/releases/` on your url bar)
+    - If you did it correctly, the kext should appear there
+
 ## 🔧 Status
 
 > [!NOTE]
