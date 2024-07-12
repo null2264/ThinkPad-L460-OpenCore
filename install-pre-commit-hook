@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "Setting pre-commit..."
+echo """#!/bin/sh
+./generate""" > .git/hooks/pre-commit
+echo "pre-commit has been set up"

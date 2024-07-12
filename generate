@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Generating public Config.plist..."
+
+cp -f EFI/OC/Config.plist EFI/OC/Config.public.plist && \
+/usr/libexec/PlistBuddy -c "Set :PlatformInfo:Generic:MLB M0000000000000001" EFI/OC/Config.public.plist && \
+/usr/libexec/PlistBuddy -c "Set :PlatformInfo:Generic:SystemSerialNumber W00000000001" EFI/OC/Config.public.plist && \
+/usr/libexec/PlistBuddy -c "Set :PlatformInfo:Generic:SystemUUID 00000000-0000-0000-0000-000000000000" EFI/OC/Config.public.plist
+
+echo "Public Config.plist has been generated: 'EFI/OC/Config.public.plist'"

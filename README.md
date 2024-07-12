@@ -1,10 +1,9 @@
 # Hackintosh for Thinkpad L460
 
 > [!WARNING]
->
 > I am not responsible for any damages you may cause
 >
-> This repository's main goal is to document my hackintosh journey. It is not meant to provide an out-of-the-box experience on doing hackintosh! If you're new to Hackintosh please make your own EFI by following [Dortania's Guide](https://dortania.github.io/) instead
+> This repository's main goal is to document my hackintosh journey. It is not meant to provide an out-of-the-box experience on doing hackintosh! If you're new to Hackintosh please make your own EFI by following [Dortania guide](https://dortania.github.io/) instead
 >
 > If you insist on using my EFI, use it with your own risk, please note that I will **NOT** provide any support
 >
@@ -38,11 +37,23 @@
 | Startup  | UEFI/Legacy Boot  |                                 | `UEFI Only` |
 |          | CSM Support       |                                 | `No`        |
 
-### Tips
+### Setup
 
-> Useful configuration you can do after you successfully installed macOS
+- Follow [Dortania guide](https://dortania.github.io/) to create macOS installer
+- On "Setting up the EFI" part, drop the `EFI/` from this repo to your installer's EFI partition
+- Rename `Config.public.plist`
+- Optional: follow [Dortania guide's PlatformInfo section](https://dortania.github.io/OpenCore-Install-Guide/config.plist/skylake.html#platforminfo)
+  - Mainly for `MLB`, `SystemSerialNumber`, and `SystemUUID`, not really needed just yet
+- Boot to USB and Install macOS
+- Now you can try `Post-Install` section's config, all of them are optional but could be useful (especially if you want to Apple Services such as iMessage)
+
+### Post-Install
+
+Useful configuration you can do after you successfully installed macOS
 
 #### Enable Apple Services
+
+Config to allow you to use Apple Services (such as iMessage)
 
 > [!NOTE]
 >
