@@ -41,9 +41,8 @@
 
 - Follow [Dortania guide](https://dortania.github.io/) to create macOS installer
 - On "Setting up the EFI" part, drop the `EFI/` from this repo to your installer's EFI partition
-- Rename `Config.public.plist`
-- Optional: follow [Dortania guide's PlatformInfo section](https://dortania.github.io/OpenCore-Install-Guide/config.plist/skylake.html#platforminfo)
-  - Mainly for `MLB`, `SystemSerialNumber`, and `SystemUUID`, not really needed just yet
+- Rename `Config.public.plist` to `Config.plist`
+  - Optional: follow [Dortania guide's PlatformInfo section](https://dortania.github.io/OpenCore-Install-Guide/config.plist/skylake.html#platforminfo) (Mainly for `MLB`, `SystemSerialNumber`, and `SystemUUID`, not really needed just yet)
 - Boot to USB and Install macOS
 - Now you can try `Post-Install` section's config, all of them are optional but could be useful (especially if you want to Apple Services such as iMessage)
 

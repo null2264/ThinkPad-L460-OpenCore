@@ -1125,6 +1125,78 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
+				<string>itlwm.kext</string>
+				<key>Comment</key>
+				<string>itlwm.kext -- Older than Catalina</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/itlwm</string>
+				<key>MaxKernel</key>
+				<string>18.99.99</string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>AirportItlwm19.kext</string>
+				<key>Comment</key>
+				<string>AirportItlwm for macOS Catalina</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AirportItlwm</string>
+				<key>MaxKernel</key>
+				<string>19.99.99</string>
+				<key>MinKernel</key>
+				<string>19.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>AirportItlwm20.kext</string>
+				<key>Comment</key>
+				<string>AirportItlwm for macOS BigSur</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AirportItlwm</string>
+				<key>MaxKernel</key>
+				<string>20.99.99</string>
+				<key>MinKernel</key>
+				<string>20.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>AirportItlwm21.kext</string>
+				<key>Comment</key>
+				<string>AirportItlwm for macOS Monterey</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AirportItlwm</string>
+				<key>MaxKernel</key>
+				<string>21.99.99</string>
+				<key>MinKernel</key>
+				<string>21.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
 				<string>AirportItlwm22.kext</string>
 				<key>Comment</key>
 				<string>AirportItlwm for macOS Ventura</string>
@@ -1145,13 +1217,13 @@
 				<key>BundlePath</key>
 				<string>AirportItlwm23.kext</string>
 				<key>Comment</key>
-				<string>AirportItlwm for macOS Sonoma</string>
+				<string>AirportItlwm for macOS Sonoma 14.0</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportItlwm</string>
 				<key>MaxKernel</key>
-				<string>23.99.99</string>
+				<string>23.3.99</string>
 				<key>MinKernel</key>
 				<string>23.0.0</string>
 				<key>PlistPath</key>
@@ -1161,9 +1233,27 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
+				<string>AirportItlwm23.4.kext</string>
+				<key>Comment</key>
+				<string>AirportItlwm for macOS Sonoma 14.4</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AirportItlwm</string>
+				<key>MaxKernel</key>
+				<string>23.99.99</string>
+				<key>MinKernel</key>
+				<string>23.4.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
 				<string>itlwm.kext</string>
 				<key>Comment</key>
-				<string>itlwm.kext</string>
+				<string>itlwm.kext -- Newer than Sonoma</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
