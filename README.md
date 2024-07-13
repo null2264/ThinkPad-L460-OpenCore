@@ -155,6 +155,18 @@ Not entirely sure why EFI partition is filling up like that but I recommend:
 - To delete a file (for example when you're updating a kext) before replacing it
 - Empty your Trash Bin before ejecting the EFI partition (or restarting your macOS)
 
+#### Undervolting
+
+This EFI has [VoltageShiftSecure](https://github.com/xCuri0/VoltageShiftSecure)
+installed, you can use this to undervolt your device, you may need to grab their
+binary to configure it.
+
+My current setup:
+
+- CPU voltage offset: -80mv
+- GPU voltage offset: -80mv
+- CPU Cache voltage offset: -60mv
+
 ## 🔧 Status
 
 > [!NOTE]
