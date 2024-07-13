@@ -152,6 +152,10 @@ If that didn't work:
 - Copy your backed up EFI into the newly formatted EFI partition
 - Now you can restart and pray that you didn't mess up :^)
 
+Not entirely sure why EFI partition is filling up like that but I recommend:
+- To delete a file (for example when you're updating a kext) before replacing it
+- Empty your Trash Bin before ejecting the EFI partition (or restarting your macOS)
+
 ## 🔧 Status
 
 > [!NOTE]
