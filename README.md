@@ -6,8 +6,6 @@
 > This repository's main goal is to document my hackintosh journey. It is not meant to provide an out-of-the-box experience on doing hackintosh! If you're new to Hackintosh please make your own EFI by following [Dortania guide](https://dortania.github.io/) instead
 >
 > If you insist on using my EFI, use it with your own risk, please note that I will **NOT** provide any support
->
-> I am not responsible for any damages you may cause
 
 ## 💻 Hardware
 - CPU: Intel Core i5-6300U
@@ -65,7 +63,7 @@ Config to allow you to use Apple Services (such as iMessage)
 5. Add one of the script's result to `MLB`, `SystemSerialNumber`, and `SystemUUID`
 7. Replace `ROM` with your MAC Address (`System Preferences -> Network -> Ethernet -> Advanced -> Hardware -> MAC Address`, then remove all the colons `:`). Or you can also try using a real Apple MAC Address
 8. Save and Reboot
-9. Check the Serial Number validity. Repeat step 5 and choose different result (or generate new set of SMBIOS) if you saw `Valid Purchase Date`
+9. Check the Serial Number validity. Repeat step 5 and choose different result (or generate new set of SMBIOS) until you find invalid Serial Number
 
 #### Disable S3/S4
 
