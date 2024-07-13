@@ -133,6 +133,25 @@ until it reboot itself.
     - Go to `Releases` page (should be on the sidebar, or just append `/releases/` on your url bar)
     - If you did it correctly, the kext should appear there
 
+#### EFI "Not Enough Disk Space" error
+
+- Empty your Trash Bin
+- Profit-
+
+If that didn't work:
+
+> [!CAUTION]
+> This process is essentially formatting your EFI partition, please make sure
+> to backup your EFI partition and have a working bootable USB ready in case of
+> emergency!
+
+- Backup your EFI
+- Run `diskutil list`, then grab your EFI partition's IDENTIFIER (e.g. `disk0s1`)
+- Run `newfs_msdos -v EFI -F 32 /dev/<IDENTIFIER>`, e.g. (`newfs_msdos -v EFI -F 32 /dev/disk0s1`)
+  - This command requires `sudo`!
+- Copy your backed up EFI into the newly formatted EFI partition
+- Now you can restart and pray that you didn't mess up :^)
+
 ## 🔧 Status
 
 > [!NOTE]
