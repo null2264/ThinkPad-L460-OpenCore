@@ -1967,7 +1967,7 @@
 				Iw==
 				</data>
 				<key>boot-args</key>
-				<string>keepsyms=1 debug=0x100 igfxonln=1 igfxrpsc=1 itlwm_cc=ID acpi_layer=0x08 acpi_level=0x02 vm_compressor=2 unfairgva=4</string>
+				<string>keepsyms=1 debug=0x100 igfxonln=1 igfxrpsc=1 itlwm_cc=ID acpi_layer=0x08 acpi_level=0x02 vm_compressor=2 unfairgva=4 revpatch=sbvmm</string>
 				<key>csr-active-config</key>
 				<data>
 				BgAAAA==
