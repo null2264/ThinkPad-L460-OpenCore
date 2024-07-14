@@ -160,6 +160,32 @@ My current setup:
 - GPU voltage offset: -80mv
 - CPU Cache voltage offset: -60mv
 
+#### Adding EFI to UEFI Boot Entry
+
+There are cases where BIOS refuses to detect HDD as bootable drive, or maybe
+you want to dual-boot in the future. The best way to fix it is by adding EFI to
+UEFI Boot Entry manually:
+
+- From Outside of OpenCore (Recommended):
+  - Create a Linux live USB and boot directly to it (make sure it has `efibootmgr`, I recommend Linux Mint)
+  - Use `efibootmgr --create --disk /dev/<your bootable drive> --part <ESP Number> --loader \\EFI\\OC\\OpenCore.efi --label "OpenCore"`
+  - Now when you reboot you'll see OpenCore entry on your boot options
+- From OpenCore - EFI Shell:
+  > [!CAUTION]
+  > This process is very sensitive, it's the not recommended way.
+  - Boot to OpenCore
+  - Press space before it auto boot you to macOS
+  - Select EFI Shell
+  - Run `map` command and find where your EFI is located (in my case it's `FS0`)
+  - Run `FS0:\EFI\OC\Tools\OpenControl.efi disable`
+  - Run `bcfg boot add 0 FS0:\EFI\OC\OpenCore.efi "OpenCore"`
+  - Finally, run `reset` to reboot your system
+- From OpenCore - Config.plist:
+  > [!NOTE]
+  > I don't recommend using this method if you're using USB to boot to OpenCore
+  - Open `EFI/OC/Config.plist` using your plist editor of choice (I recommend ProperTree)
+  - Go to `Misc` > `Boot` > `LauncherOption`, set it from `Disabled` to `Full`
+
 ## 🔧 Status
 
 > [!NOTE]
