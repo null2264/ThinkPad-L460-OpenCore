@@ -292,11 +292,12 @@ perez987. The guide is a bit confusing to navigate through, but the key points a
 - [@a565109863](https://gitee.com/a565109863) for [AirPortOpenBSD](https://gitee.com/a565109863/AirPortOpenBSD)
 - [@acidanthera](https://github.com/acidanthera) for maintaining and developing a lot of amazing Kexts
 - [@benbender](https://github.com/benbender) for SSDT-Sleep that I adapted to work with L460
-- [@corpnewt](https://github.com/corpnewt) for [gibMacOS](https://github.com/corpnewt/gibMacOS) and [MountEFI](https://github.com/corpnewt/MountEFI).
+- [@corpnewt](https://github.com/corpnewt) for [gibMacOS](https://github.com/corpnewt/gibMacOS) and [MountEFI](https://github.com/corpnewt/MountEFI)
 - [@dortania](https://github.com/dortania) for their amazing [guide](https://dortania.github.io)
 - [@jwise](https://github.com/jwise) for [HoRNDIS](https://github.com/jwise/HoRNDIS)
+- [@perez987](https://github.com/perez987) for their [secure boot guide](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot)
 - [@zhen-zen](https://github.com/zhen-zen) for [YogaSMC](https://github.com/zhen-zen/YogaSMC)
-- [@zxystd](https://github.com/zxystd) for [itlwm](https://github.com/OpenIntelWireless/itlwm)
+- [@zxystd](https://github.com/zxystd) for [itlwm](https://github.com/OpenIntelWireless/itlwm) and [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware)
 - [r/hackintosh](https://www.reddit.com/r/hackintosh) community for helping me find solution to various issue I came across
 
 ## 🔗 External Links
