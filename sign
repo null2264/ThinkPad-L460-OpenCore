@@ -1,0 +1,8 @@
+#!/bin/sh
+[ -f "./ISK.key" ] || { echo "ISK.key not found, cancelling..."; exit 1; }
+
+[ -f "./ISK.pem" ] || { echo "ISK.pem not found, cancelling..."; exit 1; }
+
+[ -z "$1" ] && { echo "Usage: sign [blob]"; exit 1; }
+
+find $@ -type f -name "*.efi" ! -name '.*' | cut -c 3- | xargs -I{} bash -c 'sbsign --key ISK.key --cert ISK.pem --output $(mkdir -p $(dirname "./Signed/{}") | echo "./Signed/{}") ./{}'

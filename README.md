@@ -170,12 +170,12 @@ UEFI Boot Entry manually:
   - Create a Linux live USB and boot directly to it (make sure it has `efibootmgr`, I recommend Linux Mint)
   - Use `efibootmgr --create --disk /dev/<your bootable drive> --part <ESP Number> --loader \\EFI\\OC\\OpenCore.efi --label "OpenCore"`
   - Now when you reboot you'll see OpenCore entry on your boot options
-- From OpenCore - EFI Shell:
+- From OpenCore - UEFI Shell:
   > [!CAUTION]
   > This process is very sensitive, it's the not recommended way.
   - Boot to OpenCore
   - Press space before it auto boot you to macOS
-  - Select EFI Shell
+  - Select UEFI Shell
   - Run `map` command and find where your EFI is located (in my case it's `FS0`)
   - Run `FS0:\EFI\OC\Tools\OpenControl.efi disable`
   - Run `bcfg boot add 0 FS0:\EFI\OC\OpenCore.efi "OpenCore"`
@@ -185,6 +185,42 @@ UEFI Boot Entry manually:
   > I don't recommend using this method if you're using USB to boot to OpenCore
   - Open `EFI/OC/Config.plist` using your plist editor of choice (I recommend ProperTree)
   - Go to `Misc` > `Boot` > `LauncherOption`, set it from `Disabled` to `Full`
+
+#### Enabling Secure Boot
+
+If you for some reason need to enable Secure Boot, you can follow the
+[guide](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot) made by
+perez987. The guide is a bit confusing to navigate through, but the key points are:
+
+- [OpenCore and UEFI Secure Boot with WSL](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot/blob/1.0.7/guide/WSL%20Ubuntu%20VM%20on%20Windows.md)  
+  If you're using Linux, just skip the WSL part, the rest is pretty much just
+  Linux. The gist is you need a way to access to a Linux system, use VM, Live
+  USB, or even WSL.
+- [Insert signature to the UEFI firmware](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot/blob/1.0.7/guide/Insert%20keys%20into%20the%20firmware.md)  
+  How I do it:
+  - Copy `KeyTool.efi` from `/usr/share/efitools/efi/` to my EFI partition
+  - Copy all `.auth` file to my EFI partition
+  - Reboot my Hack to BIOS settings, go to Secure Boot, select "Reset to Setup Mode" to enter Setup Mode
+  - Boot to OpenCore, select `UEFI Shell`
+  - Run `FS0:\KeyTool.efi`
+  - Go to Edit Keys
+  - The Allowed Signature Database (db)
+    - Select Replace Key(s)
+    - Go to `EFI`
+    - Select `db.auth`
+  - The Key Exchange Keys Database (KEK)
+    - Select Replace Key(s)
+    - Go to `EFI`
+    - Select `KEK.auth`
+  - The Platform Key (PK)
+    - Select Replace Key(s)
+    - Go to `EFI`
+    - Select `PK.auth`
+  - Exit
+  - Run `reset`
+  - Reboot to BIOS settings, greeted "Configuration Changed"
+  - Reboot to BIOS settings again, go to Secure Boot, enable it, reboot to OpenCore
+  - Profit-
 
 ## 🔧 Status
 

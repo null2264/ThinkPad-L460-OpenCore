@@ -1,3 +1,7 @@
+/efikeys/
+/ISK.*
+/Downloaded/
+/Signed/Downloaded/
 EFI/OC/Config*.plist
 !EFI/OC/Config.public.plist
 .DS_Store
