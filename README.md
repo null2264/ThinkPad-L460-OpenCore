@@ -122,13 +122,8 @@ until it reboot itself.
 - Edit `.github/workflows/main.yml` file, find "Delete unused firmware"
 - Replace `ibt-11-5` or `iwm-8000C` with your card
 - To retrieve the Kext:
-  - IntelBluetoothFirmware:
-    - Go to `Actions` tab
-    - Find latest workflow (make sure it's completed, indicated by a checkmark), click it
-    - You'll see your kext in "Artifacts" section
-  - Itlwm:
-    - Go to `Releases` page (should be on the sidebar, or just append `/releases/` on your url bar)
-    - If you did it correctly, the kext should appear there
+  - Go to `Releases` page (should be on the sidebar, or just append `/releases/` on your url bar)
+  - If you did it correctly, the kext should appear there
 
 #### EFI "Not Enough Disk Space" error
 
