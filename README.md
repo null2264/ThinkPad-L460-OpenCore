@@ -171,7 +171,6 @@ UEFI Boot Entry manually:
   - Use `efibootmgr --create --disk /dev/<your bootable drive> --part <ESP Number> --loader \\EFI\\OC\\OpenCore.efi --label "OpenCore"`
   - Now when you reboot you'll see OpenCore entry on your boot options
 - From OpenCore - UEFI Shell:
-  > [!CAUTION]
   > This process is very sensitive, it's the not recommended way.
   - Boot to OpenCore
   - Press space before it auto boot you to macOS
@@ -181,7 +180,6 @@ UEFI Boot Entry manually:
   - Run `bcfg boot add 0 FS0:\EFI\OC\OpenCore.efi "OpenCore"`
   - Finally, run `reset` to reboot your system
 - From OpenCore - Config.plist:
-  > [!NOTE]
   > I don't recommend using this method if you're using USB to boot to OpenCore
   - Open `EFI/OC/Config.plist` using your plist editor of choice (I recommend ProperTree)
   - Go to `Misc` > `Boot` > `LauncherOption`, set it from `Disabled` to `Full`
