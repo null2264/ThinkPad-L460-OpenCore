@@ -17,7 +17,7 @@
 - LAN: Intel i219
 - WLAN/Bluetooth: Intel(R) Dual Band Wireless-AC 8260
 
-### BIOS Config
+## BIOS Config
 
 | Menu     |                   |                                 | Setting     | Note        |
 | -------- | ----------------- | ------------------------------- | ----------- | ----------- |
@@ -35,7 +35,7 @@
 | Startup  | UEFI/Legacy Boot  |                                 | `UEFI Only` |             |
 |          | CSM Support       |                                 | `No`        |             |
 
-### Setup
+## Setup
 
 - Follow [Dortania guide](https://dortania.github.io/) to create macOS installer
 - On "Setting up the EFI" part, drop the `EFI/` from this repo to your installer's EFI partition
@@ -44,11 +44,11 @@
 - Boot to USB and Install macOS
 - Now you can try `Post-Install` section's config, all of them are optional but could be useful (especially if you want to Apple Services such as iMessage)
 
-### Post-Install
+## Post-Install
 
 Useful configuration you can do after you successfully installed macOS
 
-#### Enable Apple Services
+### Enable Apple Services
 
 Config to allow you to use Apple Services (such as iMessage)
 
@@ -65,7 +65,7 @@ Config to allow you to use Apple Services (such as iMessage)
 8. Save and Reboot
 9. Check the Serial Number validity. Repeat step 5 and choose different result (or generate new set of SMBIOS) until you find invalid Serial Number
 
-#### Disable S3/S4
+### Disable S3/S4
 
 This is the stupid simple way to fix sleep related issues, simply disable S3/S4:
 
@@ -84,7 +84,7 @@ sudo pmset -a tcpkeepalive 0
 
 I personally don't do this since it's no fun but also doesn't actually fix the issue, just disabling some problematic features
 
-#### Bluetooth Workaround
+### Bluetooth Workaround
 
 1. Get your Bluetooth Controller's MAC Address,
    - Method 1:  
@@ -106,13 +106,13 @@ I personally don't do this since it's no fun but also doesn't actually fix the i
 3. Reboot to apply the changes
 4. Get into S3/S4 sleep then try connecting to a device via Bluetooth
 
-#### Ventura 13.x Reboot Into Recovery
+### Ventura 13.x Reboot Into Recovery
 
 Not sure what happened here, but ResetNVRAM seems to fix this issue, if it
 seems like your hackintosh is stuck on Apple logo with progressbar, just wait
 until it reboot itself.
 
-#### Reducing itlwm and/or IntelBluetoothFirmware Kext's filesize
+### Reducing itlwm and/or IntelBluetoothFirmware Kext's filesize
 
 - Go to either of these repo:
   - https://github.com/null2264/itlwm
@@ -125,7 +125,7 @@ until it reboot itself.
   - Go to `Releases` page (should be on the sidebar, or just append `/releases/` on your url bar)
   - If you did it correctly, the kext should appear there
 
-#### EFI "Not Enough Disk Space" error
+### EFI "Not Enough Disk Space" error
 
 - Empty your Trash Bin
 - Profit-
@@ -148,7 +148,7 @@ Not entirely sure why EFI partition is filling up like that but I recommend:
 - To delete a file (for example when you're updating a kext) before replacing it
 - Empty your Trash Bin before ejecting the EFI partition (or restarting your macOS)
 
-#### Undervolting
+### Undervolting
 
 This EFI has [VoltageShiftSecure](https://github.com/xCuri0/VoltageShiftSecure)
 installed, you can use this to undervolt your device, you may need to grab their
@@ -160,7 +160,7 @@ My current setup:
 - GPU voltage offset: -80mv
 - CPU Cache voltage offset: -60mv
 
-#### Adding EFI to UEFI Boot Entry
+### Adding EFI to UEFI Boot Entry
 
 There are cases where BIOS refuses to detect HDD as bootable drive, or maybe
 you want to dual-boot in the future. The best way to fix it is by adding EFI to
@@ -184,7 +184,7 @@ UEFI Boot Entry manually:
   - Open `EFI/OC/Config.plist` using your plist editor of choice (I recommend ProperTree)
   - Go to `Misc` > `Boot` > `LauncherOption`, set it from `Disabled` to `Full`
 
-#### Enabling Secure Boot
+### Enabling Secure Boot
 
 If you for some reason need to enable Secure Boot, you can follow the
 [guide](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot) made by
