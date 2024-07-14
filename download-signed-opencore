@@ -19,14 +19,10 @@ rm "OpenCore-${VERSION}-RELEASE.zip"
 # Download HfsPlus
 wget https://github.com/acidanthera/OcBinaryData/raw/master/Drivers/HfsPlus.efi -O ./Downloaded/X64/EFI/OC/Drivers/HfsPlus.efi
 
-[ -f "./ISK.key" ] && echo "ISK.key was decrypted successfully" || { echo "ISK.key not found, cancelling..."; exit 1; }
-
-[ -f "./ISK.pem" ] && echo "ISK.pem was decrypted successfully" || { echo "ISK.pem not found, cancelling..."; exit 1; }
-
 # Sign drivers by recursively looking for the .efi files in ./Downloaded directory
 # Don't sign files that start with the dot, as this is metadata files
 # Andrew Blitss's contribution
-find ./Downloaded/X64/EFI/**/* -type f -name "*.efi" ! -name '.*' | cut -c 3- | xargs -I{} bash -c 'sbsign --key ISK.key --cert ISK.pem --output $(mkdir -p $(dirname "./Signed/{}") | echo "./Signed/{}") ./{}'
+./sign ./Downloaded/X64/EFI/**/*
 
 # Clean
 rm -rf Downloaded
