@@ -9,7 +9,7 @@ case $OSTYPE in darwin*) >&2 echo "Signing from macOS is currently not possible"
 # 0.8.7
 VERSION=$1
 
-[ -z "$1" ] && { echo "Usage: download-signed-opencore [version]"; exit 1; }
+[ -z "$1" ] && { echo "Usage: download-signed-opencore [oc version]"; exit 1; }
 
 # Download and unzip OpenCore
 wget "https://github.com/acidanthera/OpenCorePkg/releases/download/${VERSION}/OpenCore-${VERSION}-RELEASE.zip"
