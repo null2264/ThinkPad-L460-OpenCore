@@ -197,6 +197,7 @@ perez987. The guide is a bit confusing to navigate through, but the key points a
 - [Insert signature to the UEFI firmware](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot/blob/1.0.7/guide/Insert%20keys%20into%20the%20firmware.md)  
   How I do it:
   - Copy `KeyTool.efi` from `/usr/share/efitools/efi/` to my EFI partition
+    - Or use the one in `Signed/` directory if you use `signing-bootstrap` script
   - Copy all `.auth` file to my EFI partition
   - Reboot my Hack to BIOS settings, go to Secure Boot, select "Reset to Setup Mode" to enter Setup Mode
   - Boot to OpenCore, select `UEFI Shell`
