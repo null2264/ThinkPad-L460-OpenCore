@@ -1,0 +1,42 @@
+#!/bin/sh
+# Automation script to enable Secure Boot for Hackintosh
+#
+# Requirements:
+# - unzip (Some distro doesn't install this package by default)
+# - efitools
+# - sbsigntools
+# - wget
+
+[ -d "efikeys" ] && { echo "Folder 'efikeys' already exists, exiting..."; exit 1; }
+mkdir efikeys
+cd efikeys
+
+openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME PK Platform Key/" -keyout PK.key -out PK.pem
+openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME KEK Exchange Key/" -keyout KEK.key -out KEK.pem
+openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME ISK Image Signing Key/" -keyout ISK.key -out ISK.pem
+chmod 0600 *.key
+
+wget --user-agent="Mozilla" https://www.microsoft.com/pkiops/certs/MicWinProPCA2011_2011-10-19.crt
+wget --user-agent="Mozilla" https://www.microsoft.com/pkiops/certs/MicCorUEFCA2011_2011-06-27.crt
+
+openssl x509 -in MicWinProPCA2011_2011-10-19.crt -inform DER -out MicWinProPCA2011_2011-10-19.pem -outform PEM
+openssl x509 -in MicCorUEFCA2011_2011-06-27.crt -inform DER -out MicCorUEFCA2011_2011-06-27.pem -outform PEM
+
+cert-to-efi-sig-list -g $(uuidgen) PK.pem PK.esl
+cert-to-efi-sig-list -g $(uuidgen) KEK.pem KEK.esl
+cert-to-efi-sig-list -g $(uuidgen) ISK.pem ISK.esl
+cert-to-efi-sig-list -g $(uuidgen) MicWinProPCA2011_2011-10-19.pem MicWinProPCA2011_2011-10-19.esl
+cert-to-efi-sig-list -g $(uuidgen) MicCorUEFCA2011_2011-06-27.pem MicCorUEFCA2011_2011-06-27.esl
+
+cat ISK.esl MicWinProPCA2011_2011-10-19.esl MicCorUEFCA2011_2011-06-27.esl > db.esl
+
+sign-efi-sig-list -k PK.key -c PK.pem PK PK.esl PK.auth
+sign-efi-sig-list -k PK.key -c PK.pem KEK KEK.esl KEK.auth
+sign-efi-sig-list -k KEK.key -c KEK.pem db db.esl db.auth
+
+cp ISK.key ../
+cp ISK.pem ../
+
+cd ..
+
+echo 'Certificate has been created, you can use `sign` script to sign *.efi files or use `download-signed-opencore [oc version]` to download signed OpenCore files'
