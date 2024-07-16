@@ -166,25 +166,43 @@ There are cases where BIOS refuses to detect HDD as bootable drive, or maybe
 you want to dual-boot in the future. The best way to fix it is by adding EFI to
 UEFI Boot Entry manually:
 
-- From Outside of OpenCore (Recommended):
-  - Create a Linux live USB and boot directly to it (make sure it has `efibootmgr`, I recommend Linux Mint)
-  - Use `efibootmgr --create --disk /dev/<your bootable drive> --part <ESP Number> --loader \\EFI\\OC\\OpenCore.efi --label "OpenCore"`
-  - Now when you reboot you'll see OpenCore entry on your boot options
-- From OpenCore - UEFI Shell:
-  > This process is very sensitive, it's the not recommended way.
-  - Boot to OpenCore
-  - Press space before it auto boot you to macOS
-  - Select UEFI Shell
-  - Run `map` command and find where your EFI is located (in my case it's `FS0`)
-  - Run `FS0:\EFI\OC\Tools\OpenControl.efi disable`
-  - Run `bcfg boot add 0 FS0:\EFI\OC\OpenCore.efi "OpenCore"`
-  - Finally, run `reset` to reboot your system
-- From OpenCore - Config.plist:
-  > I don't recommend using this method if you're using USB to boot to OpenCore
-  - Open `EFI/OC/Config.plist` using your plist editor of choice (I recommend ProperTree)
-  - Go to `Misc` > `Boot` > `LauncherOption`, set it from `Disabled` to `Full`
+#### From Outside of OpenCore (Recommended):
+- Create a Linux live USB and boot directly to it (make sure it has `efibootmgr`, I recommend Linux Mint)
+- Use `efibootmgr --create --disk /dev/<your bootable drive> --part <ESP Number> --loader \\EFI\\OC\\OpenCore.efi --label "OpenCore"`
+- Now when you reboot you'll see OpenCore entry on your boot options
+
+#### From OpenCore - UEFI Shell:
+> [!CAUTION]
+> This process is very sensitive, it's the not recommended way.
+- Boot to OpenCore
+- Press space before it auto boot you to macOS
+- Select UEFI Shell
+- Run `map` command and find where your EFI is located (in my case it's `FS0`)
+- Run `FS0:\EFI\OC\Tools\OpenControl.efi disable`
+- Run `bcfg boot add 0 FS0:\EFI\OC\OpenCore.efi "OpenCore"`
+- Finally, run `reset` to reboot your system
+
+#### From OpenCore - Config.plist:
+> [!CAUTION]
+> I don't recommend using this method if you're using USB to boot to OpenCore
+- Open `EFI/OC/Config.plist` using your plist editor of choice (I recommend ProperTree)
+- Go to `Misc` > `Boot` > `LauncherOption`, set it from `Disabled` to `Full`
 
 ### Enabling Secure Boot
+
+#### Using shim
+
+TODO - https://github.com/acidanthera/OpenCorePkg/blob/master/Utilities/ShimUtils/README.md
+
+I haven't done it myself, but you can skip inserting your own signature if you
+use Shim bootloader and chainload OpenCore from it, Shim itself is (usually)
+signed using Microsoft cert, but of course Microsoft wouldn't want people to
+use it to bypass Secure Boot, so Shim has a verification logic that check if
+the MOK (iirc it can be either a hash or a signature) inside an image (e.g.
+EFI) is in the MOK (Machine Owner Key) list. It'll also allow you to enroll the
+MOK pretty easily, no need to use KeyTool and stuff, it'll just prompt you.
+
+#### Manual
 
 If you for some reason need to enable Secure Boot, you can follow the
 [guide](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot) made by
