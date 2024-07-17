@@ -295,9 +295,6 @@ perez987. The guide is a bit confusing to navigate through, but the key points a
 - MiniDP
   - Need MiniDP adapter since none of my devices use MiniDP
 
-## 📋 TODO
-- [ ] Dump ACPI into this repo
-
 ## 📂 Other Repositories
 - ThinkPad X1C6:
   - [benbender/x1c6-hackintosh](https://github.com/benbender/x1c6-hackintosh)
