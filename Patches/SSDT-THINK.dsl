@@ -19,6 +19,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "THKP", 0x00000000)
 
     External (LNUX, FieldUnitObj) // Variable set with "Linux" or "FreeBSD"
     External (WNTF, FieldUnitObj) // Variable set with "Windows 2001" or "Microsoft Windows NT"
+    External (WIN8, FieldUnitObj) // Variable set with "Windows 8", "Windows 8.1", or "Windows 10"
     External (OSYS, FieldUnitObj)
     External (H8DR, FieldUnitObj)
 
@@ -59,22 +60,28 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "THKP", 0x00000000)
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
             XINI ()
+
             If (OSDW ())
             {
                 Debug = "INIT: Entering _INI"
                 Debug = Concatenate ("INIT: Initial OSYS is: ", \OSYS)
+                Debug = Concatenate ("INIT: Initial H8DR is: ", \H8DR)
 
-                // Mute LED workaround, judging from my DSDT... doesn't seem to be useful, need further testing
+                // Set OS type to Linux for mute LED workaround.
+                // May be combined with MuteLEDFixup in prefpane.
                 LNUX = One
 
-                // Make the laptop think it's in Windows
+                // Set OS type to Windows 2001
                 WNTF = One
 
-                // Set OSYS to use Windows 2015's value
+                // Set OS type to Windows 2015
+                WIN8 = One
                 OSYS = 0x07DF
                 Debug = Concatenate ("INIT: OSYS is set to: ", \OSYS)
 
-                Debug = Concatenate ("INIT: H8DR is: ", \H8DR)
+                // Set H8DR to One
+                H8DR = One
+                Debug = Concatenate ("INIT: H8DR is set to: ", \H8DR)
             }
         }
     }
