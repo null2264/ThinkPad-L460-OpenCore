@@ -284,7 +284,20 @@ perez987. The guide is a bit confusing to navigate through, but the key points a
 - \_Qxx EC Query not firing after sleep, caused FN Hotkeys and some battery update functions to stop working, reboot is required to fix it. A common issue on E-Series and L-series ThinkPad
   - After some testing, this seems to be a firmware issue
   - Current workaround:
-    - Use Karabiner: `karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/null2264/ThinkPad-L460-OpenCore/master/Include/karabiner.json`
+    - Use Karabiner: `karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/null2264/ThinkPad-L460-OpenCore/master/Include/karabiner.json`  
+      This config map Ctrl+F<1-12> into the function of FN+F<1-12>:
+      - CTRL+F1 = FN+F1 -> Mute toggle
+      - CTRL+F2 = FN+F2 -> Volume down
+      - CTRL+F3 = FN+F3 -> Volume up
+      - CTRL+F4 = FN+F4 -> *No alternative*
+      - CTRL+F5 = FN+F5 -> Brightness down
+      - CTRL+F6 = FN+F6 -> Brightness up
+      - CTRL+F7 = FN+F7 -> *No alternative*
+      - CTRL+F8 = FN+F8 -> *No alternative*
+      - CTRL+F9 = FN+F9 -> *No alternative*
+      - CTRL+F10 = FN+F10 -> Open Alfred (FN use Spotlight)
+      - CTRL+F11 = FN+F11 -> Open Mission Control
+      - CTRL+F12 = FN+F12 -> Open Launchpad
 - DRM
   - iGPU-only DRM is completely broken, use browser with Widevine DRM instead
   - Some iGPU-only Laptop users reported that `unfairgva=4` fixed it, you may test it on your device, but this workaround doesn't seems to be working on my Laptop
