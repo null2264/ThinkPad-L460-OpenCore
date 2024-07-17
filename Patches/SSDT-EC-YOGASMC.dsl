@@ -36,7 +36,7 @@ DefinitionBlock ("", "SSDT", 2, "THKP", "YGEC", 0x00000000)
             Return ((XWA0 | (XWA1 << 0x08)))
         }
 
-        // -- Stuff for YogaSMC
+        // >> YogaSMC
         Method (RE1B, 1, NotSerialized)
         {
             OperationRegion (ERAM, EmbeddedControl, Arg0, One)
@@ -89,6 +89,7 @@ DefinitionBlock ("", "SSDT", 2, "THKP", "YGEC", 0x00000000)
                 Local0++
             }
         }
+        // << YogaSMC
     }
 }
 

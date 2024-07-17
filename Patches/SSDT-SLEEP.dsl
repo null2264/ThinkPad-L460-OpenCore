@@ -111,7 +111,6 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
             \_SB.SCGE = One
         }
 
-
         If (CondRefOf (\ZPTS))
         {
             Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
@@ -124,7 +123,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
                     SPTS ()
                 }
 
-                ZPTS (Arg0)
+                \ZPTS (Arg0)
 
                 // On shutdown
                 If (OSDW () && (Arg0 == 0x05))
@@ -140,7 +139,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
         If (CondRefOf (\ZWAK))
         {
             // Patch _WAK to fire missing LID-Open event and update AC-state
-            Method (_WAK, 1, Serialized)
+            Method (_WAK, 1, NotSerialized)
             {
                 Debug = Concatenate ("SLEEP: _WAK () called with Arg0: ", Arg0)
 
@@ -150,7 +149,11 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
                     SWAK ()
                 }
 
-                Local0 = ZWAK(Arg0)
+                Debug = Concatenate ("SLEEP: ZWAK () called with Arg0: ", Arg0)
+
+                Local0 = \ZWAK (Arg0)
+
+                Debug = Concatenate ("SLEEP: ZWAK () called with result: ", Local0)
 
                 Return (Local0)
             }
