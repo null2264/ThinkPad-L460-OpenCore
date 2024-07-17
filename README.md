@@ -283,6 +283,8 @@ perez987. The guide is a bit confusing to navigate through, but the key points a
 ### ⚠️ Partially Working
 - \_Qxx EC Query not firing after sleep, caused FN Hotkeys and some battery update functions to stop working, reboot is required to fix it. A common issue on E-Series and L-series ThinkPad
   - After some testing, this seems to be a firmware issue
+  - Current workaround:
+    - Use Karabiner: `karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/null2264/ThinkPad-L460-OpenCore/master/Include/karabiner.json`
 - DRM
   - iGPU-only DRM is completely broken, use browser with Widevine DRM instead
   - Some iGPU-only Laptop users reported that `unfairgva=4` fixed it, you may test it on your device, but this workaround doesn't seems to be working on my Laptop
