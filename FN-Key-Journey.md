@@ -1,5 +1,7 @@
 # FN Key Journey
 
+### Main culprit: _Qxx (EC Query) not firing after S3 sleep
+
 This is a log of my journey trying to fix FN Key on L460 so that I can look up
 my previous findings more easily.
 
@@ -54,3 +56,50 @@ Currently, I still have no idea how to fix this, I've compared L460's DSDT with
 a confirmed working ThinkPad model's DSDT but I couldn't find anything that
 would caused this issue. For now the only "fix" I can do is to disable S3/S4
 sleep and only use S0 for sleep, or disable sleep entirely.
+
+## 17-07-2024
+
+A lead? sorta...
+
+```xml
+<key>Custom PS2 Map</key>
+<array>
+    <string>;The following 12 items map Fn+fkeys to fkeys</string>
+    <string>e020=3b</string>
+    <string>e02e=3c</string>
+    <string>e030=3d</string>
+    <string>;Fn+f4 macro</string>
+    <string>e005=3f</string>
+    <string>e006=40</string>
+    <string>;Fn+f7 macro</string>
+    <string>;Fn+f8 macro</string>
+    <string>;Fn+f9 macro</string>
+    <string>;Fn+f10 macro</string>
+    <string>;Fn+f11 macro</string>
+    <string>;Fn+f12 no code</string>
+    <string>;The following 12 items map fkeys to Fn+fkeys</string>
+    <string>3b=e020</string>
+    <string>3c=e02e</string>
+    <string>3d=e030</string>
+    <string>;Fn+f4 macro</string>
+    <string>3f=e005</string>
+    <string>40=e006</string>
+    <string>;Fn+f7 macro</string>
+    <string>;Fn+f8 macro</string>
+    <string>;Fn+f9 macro</string>
+    <string>;Fn+f10 macro</string>
+    <string>;Fn+f11 macro</string>
+    <string>;Fn+f12 no code</string>
+</array>
+```
+
+This patch swap FN+F<1-12> with F1<1-12>, which I thought was (somehow) enough
+to fix FN-key after sleep, but nope, yet another dead end. But it did prove
+that it probably is a firmware issue, since after S3 sleep F1-F3, F4, and F5
+stopped working.
+
+REF: https://github.com/KenDxD/Lenovo-Thinkpad-E560-Hackintosh/commit/45826bfc65d424d01f899eba063e5a50f59555a4
+
+They said it's a patch, but sadly they never mention which parts is being
+patched, is it just VoodooPS2Keyboard.kext/Info.plist that being changed, or
+there more to it. Who knows.
