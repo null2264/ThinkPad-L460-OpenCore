@@ -57,7 +57,6 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
     External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
     External (_SB_.PCI0.GFX0.VLOC, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.LPC_.EC__.BAT0, UnknownObj)
     External (_SB_.PCI0.PTDP, FieldUnitObj)
     External (_SB_.PCI0.RP05.PEGP.BADR, MethodObj)    // Warning: Unknown method, guessing 1 arguments
     External (_SB_.PCI0.RP09.PEGP.BADR, MethodObj)    // Warning: Unknown method, guessing 1 arguments
