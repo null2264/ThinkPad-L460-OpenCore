@@ -19,21 +19,26 @@
 
 ## BIOS Config
 
-| Menu     |                   |                                 | Setting     | Note        |
-| -------- | ----------------- | ------------------------------- | ----------- | ----------- |
-| Config   | USB               | UEFI BIOS Support               | `Enable`    |             |
-|          | Power             | Intel SpeedStep Technology      | `Enable`    |             |
-|          |                   | CPU Power Management            | `Enable`    |             |
-| Security | Security Chip     |                                 | `Disable`   |             |
-|          | Memory Protection | Execution Prevention            | `Enable`    |             |
-|          | Virtualization    | Intel Virtualization Technology | `Enable`    |             |
-|          |                   | Intel VT-d Feature              | `Enable`    |             |
-|          | Anti-Theft        | Computrace                      | `Disable`   |             |
-|          | Secure Boot       |                                 | `Disable`   | [Can be enabled if you sign OpenCore](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot) |
-|          | Intel SGX         |                                 | `Disable`   |             |
-|          | Device Guard      |                                 | `Disable`   |             |
-| Startup  | UEFI/Legacy Boot  |                                 | `UEFI Only` |             |
-|          | CSM Support       |                                 | `No`        |             |
+| Menu     |                   |                                  | Setting     | Note        |
+| -------- | ----------------- | -------------------------------- | ----------- | ----------- |
+| Config   | USB               | UEFI BIOS Support                | `Enable`    |             |
+|          |                   | Always On USB                    | `Enable`    |             |
+|          |                   | - Charge in Battery Mode         | `Disable`   |             |
+|          | Power             | Intel SpeedStep Technology       | `Enable`    |             |
+|          |                   | CPU Power Management             | `Enable`    |             |
+|          | CPU               | Intel Hyper-Threading Technology | `Enable`    |             |
+| Security | Security Chip     |                                  | `Disable`   |             |
+|          | Memory Protection | Execution Prevention             | `Enable`    |             |
+|          | Virtualization    | Intel Virtualization Technology  | `Enable`    |             |
+|          |                   | Intel VT-d Feature               | `Enable`    |             |
+|          | I/O Port Access   | Memory Card Slot                 | `Disable`   |             |
+|          | Anti-Theft        | Computrace                       | `Disable`   |             |
+|          | Secure Boot       |                                  | `Disable`   | [Can be enabled after installation complete if you sign OpenCore](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot) |
+|          | Intel SGX         |                                  | `Disable`   |             |
+|          | Device Guard      |                                  | `Disable`   |             |
+| Startup  | UEFI/Legacy Boot  |                                  | `UEFI Only` |             |
+|          | CSM Support       |                                  | `No`        |             |
+|          | Boot Mode         |                                  | `Quick`     |             |
 
 ## Setup
 
