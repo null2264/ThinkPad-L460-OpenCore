@@ -42,10 +42,12 @@
 
 ## Setup
 
+- Optional: Before doing anything, be sure to generate your own USB mapping using [USBToolBox](https://github.com/USBToolBox/tool) and store the Kext somewhere, just in case your laptop mapping different from mine
 - Follow [Dortania guide](https://dortania.github.io/) to create macOS installer
 - On "Setting up the EFI" part, drop the `EFI/` from this repo to your installer's EFI partition
 - Rename `Config.public.plist` to `Config.plist`
   - Optional: follow [Dortania guide's PlatformInfo section](https://dortania.github.io/OpenCore-Install-Guide/config.plist/skylake.html#platforminfo) (Mainly for `MLB`, `SystemSerialNumber`, and `SystemUUID`, not really needed just yet)
+  - Optiona: drop your `UTBMap.kext` into `EFI/OC/Kexts` directory
 - Boot to USB and Install macOS
 - Now you can try `Post-Install` section's config, all of them are optional but could be useful (especially if you want to Apple Services such as iMessage)
 
