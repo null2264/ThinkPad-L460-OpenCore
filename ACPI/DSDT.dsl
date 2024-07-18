@@ -1,4 +1,4 @@
-/*
+/* vim: ts=4 sw=4 et
  * Intel ACPI Component Architecture
  * AML/ASL+ Disassembler version 20200925 (64-bit version)
  * Copyright (c) 2000 - 2020 Intel Corporation
@@ -5831,6 +5831,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                         Name (DHKT, 0x00)
                         Name (DHWW, 0x00)
                         Mutex (XDHK, 0x00)
+                        /* NOTE: Mask HotKey All */
                         Method (MHKA, 0, NotSerialized)
                         {
                             Return (0xFFFFFFFB)
@@ -6507,6 +6508,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
 
                     Scope (\_SB.PCI0.LPC.EC.HKEY)
                     {
+                        /* NOTE: Mic MuTe Get? */
                         Method (MMTG, 0, NotSerialized)
                         {
                             Local0 = 0x0101
@@ -6518,6 +6520,9 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                             Return (Local0)
                         }
 
+                        /* NOTE: Mic MuTe Status
+                         * Input Audio LED
+                         */
                         Method (MMTS, 1, NotSerialized)
                         {
                             If (HDMC)
@@ -9859,6 +9864,9 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                 Return (\AUDC (0x00, 0x00))
             }
 
+            /* NOTE: Sound SysteM Status?
+             * Output Audio LED
+             */
             Method (SSMS, 1, NotSerialized)
             {
                 If ((Arg0 == 0x00))
