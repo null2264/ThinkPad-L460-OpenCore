@@ -216,7 +216,7 @@ perez987. The guide is a bit confusing to navigate through, but the key points a
 - [OpenCore and UEFI Secure Boot with WSL](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot/blob/1.0.7/guide/WSL%20Ubuntu%20VM%20on%20Windows.md)  
   If you're using Linux, just skip the WSL part, the rest is pretty much just
   Linux. The gist is you need a way to access to a Linux system, use VM, Live
-  USB, or even WSL.
+  USB, [Multipass](https://multipass.run/), or WSL.
 - [Insert signature to the UEFI firmware](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot/blob/1.0.7/guide/Insert%20keys%20into%20the%20firmware.md)  
   How I do it:
   - Copy `KeyTool.efi` from `/usr/share/efitools/efi/` to my EFI partition
