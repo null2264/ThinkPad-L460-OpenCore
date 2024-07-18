@@ -1,4 +1,12 @@
 #!/bin/sh
+case "$OSTYPE" in
+	"darwin"* )
+		[ $(command -v "multipass" | wc -l) -gt 0 ] || {
+			echo "Multipass is required to do signing from macOS!";
+			exit 1;
+		}
+	;;
+esac
 
 execute() {
 	OC_SIGNING_MULTIPASS_INSTANCE=${OC_SIGNING_MULTIPASS_INSTANCE:-"primary"}
