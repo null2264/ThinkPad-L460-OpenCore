@@ -209,6 +209,23 @@ the MOK (iirc it can be either a hash or a signature) inside an image (e.g.
 EFI) is in the MOK (Machine Owner Key) list. It'll also allow you to enroll the
 MOK pretty easily, no need to use KeyTool and stuff, it'll just prompt you.
 
+#### Automated
+
+Please read
+[#manual](https://github.com/null2264/ThinkPad-L460-OpenCore/tree/master?tab=readme-ov-file#manual)
+for more information. If you're doing this in macOS, make sure to have
+[Multipass](https://multipass.run/) installed.
+
+I've made automation script to (semi) automate signing:
+- `signing-bootstrap`: Only run this once, this script will setup the (almost)
+  all necessery stuff for signing in this directory for you. Run this script
+  first (if you haven't) before running the other scripts.
+- `sign`: Find and sign `.efi` file(s). (Signed `.efi` files are stored in
+  `Signed/` directory)
+- `signed-opencore-downloader`: Download and signed OpenCorePkg (useful when
+  updating OpenCore)
+- `signing-common`: Not meant to be ran, meant to be imported to other script
+
 #### Manual
 
 If you for some reason need to enable Secure Boot, you can follow the
