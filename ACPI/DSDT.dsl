@@ -5837,11 +5837,13 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                             Return (0xFFFFFFFB)
                         }
 
+                        /* NOTE: Getter for the Mask */
                         Method (MHKN, 0, NotSerialized)
                         {
                             Return (DHKN) /* \_SB_.PCI0.LPC_.EC__.HKEY.DHKN */
                         }
 
+                        /* NOTE: Check if a hotkey (Arg0) is enabled */
                         Method (MHKK, 1, NotSerialized)
                         {
                             If (DHKC)
@@ -5854,6 +5856,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                             }
                         }
 
+                        /* NOTE: M??? HotKey Mask, basically setter for the Mask */
                         Method (MHKM, 2, NotSerialized)
                         {
                             Acquire (XDHK, 0xFFFF)
@@ -5884,16 +5887,19 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                             Release (XDHK)
                         }
 
+                        /* TODO: Mask HotKey Status? */
                         Method (MHKS, 0, NotSerialized)
                         {
                             Notify (\_SB.SLPB, 0x80) // Status Change
                         }
 
+                        /* NOTE: Toggle events. */
                         Method (MHKC, 1, NotSerialized)
                         {
                             DHKC = Arg0
                         }
 
+                        /* NOTE: Retrieve event. */
                         Method (MHKP, 0, NotSerialized)
                         {
                             Acquire (XDHK, 0xFFFF)
@@ -5932,6 +5938,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                             Return (Local1)
                         }
 
+                        /* TODO: Also toggle events? seems to be extra check for sleep state */
                         Method (MHKE, 1, Serialized)
                         {
                             DHKB = Arg0
@@ -5945,6 +5952,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                             Release (XDHK)
                         }
 
+                        /* NOTE: (M??? HotKey) Query an event */
                         Method (MHKQ, 1, Serialized)
                         {
                             If (DHKB)
@@ -15166,7 +15174,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
         0x00, 
         0x00
     })
-    Method (\_PTS, 1, NotSerialized)
+    Method (\_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
         If ((OSYS < 0x07DC))
         {
@@ -15214,6 +15222,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                 {
                     If (\H8DR)
                     {
+                        // FIXME: A lead? This never set back to One on wake
                         \_SB.PCI0.LPC.EC.HWFN = 0x00
                     }
                     Else
@@ -15264,12 +15273,12 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
         }
     }
 
-    Name (WAKI, Package (0x02)
+    Name (WAKI, Package (0x02)  // WAKI: Wake Information?
     {
         0x00, 
         0x00
     })
-    Method (\_WAK, 1, NotSerialized)
+    Method (\_WAK, 1, NotSerialized)  // _WAK: Wake
     {
         P80H = (Arg0 << 0x04)
         ADBG ("_WAK")
