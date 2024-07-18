@@ -52,7 +52,7 @@ cp ISK.pem ../
 cd ../
 
 execute cp /usr/share/efitools/efi/KeyTool.efi ./ || execute eval "cp /usr/lib/efitools/**/KeyTool.efi ./"  # Goddammit Ubuntu
-execute ./sign ./KeyTool.efi
+./sign ./KeyTool.efi
 rm -f ./KeyTool.efi
 
 echo 'Certificate has been created, you can use `sign` script to sign *.efi files or use `download-signed-opencore [oc version]` to download signed OpenCore files'

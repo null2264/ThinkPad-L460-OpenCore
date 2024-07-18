@@ -22,7 +22,7 @@ wget https://github.com/acidanthera/OcBinaryData/raw/master/Drivers/HfsPlus.efi 
 # Sign drivers by recursively looking for the .efi files in ./Downloaded directory
 # Don't sign files that start with the dot, as this is metadata files
 # Andrew Blitss's contribution
-execute ./sign ./Downloaded/X64/EFI/**/*
+./sign ./Downloaded/X64/EFI/**/*
 
 # Clean
 rm -rf Downloaded

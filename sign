@@ -1,11 +1,8 @@
 #!/bin/sh
 
-case "$OSTYPE" in
-	"darwin"* )
-		echo "Run this through multipass (e.g. multipass exec -- ./sign ./EFI/)"
-		exit 1
-	;;
-esac
+. ./signing-common  # import execute
+
+export -f execute
 
 [ -f "./ISK.key" ] || { echo "ISK.key not found, cancelling..."; exit 1; }
 
@@ -13,4 +10,4 @@ esac
 
 [ -z "$1" ] && { echo "Usage: sign [blob]"; exit 1; }
 
-find $@ -type f -name "*.efi" ! -name '.*' | cut -c 3- | xargs -I{} bash -c 'sbsign --key ISK.key --cert ISK.pem --output $(mkdir -p $(dirname "./Signed/{}") | echo "./Signed/{}") ./{}'
+find $@ -type f -name "*.efi" ! -name '.*' | cut -c 3- | xargs -I{} bash -c 'execute sbsign --key ISK.key --cert ISK.pem --output $(mkdir -p $(dirname "./Signed/$@") | echo "./Signed/$@") ./$@' _ {}
