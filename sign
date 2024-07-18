@@ -1,4 +1,12 @@
 #!/bin/sh
+#
+# Copyright (c) 2015 Roderick W. Smith.
+# Copyright (c) 2021 profzei.
+# Copyright (c) 2024 null2264.
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Extracted from: https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot/blob/1.0.7/guide/WSL%20Ubuntu%20VM%20on%20Windows.md#signing-opencore-files
+#
 
 . ./signing-common  # import execute
 

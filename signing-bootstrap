@@ -1,11 +1,17 @@
 #!/bin/sh
-# Automation script to enable Secure Boot for Hackintosh
+#
+# Copyright (c) 2024 null2264.
+# SPDX-License-Identifier: Unlicense
+#
+
+# Automation script to generate signing keys in order to enable Secure Boot for
+# Hackintosh
 #
 # Requirements:
-# - unzip (Some distro doesn't install this package by default)
+# - unzip (Some distro doesn't have this package by default)
 # - efitools
 # - sbsigntools
-# - wget
+# - wget (Some distro doesn't have this package by default)
 
 . ./signing-common  # import execute
 
@@ -13,7 +19,10 @@ is_command_exists() {
 	execute command -v $1 | wc -l || exit 1
 }
 
-[ $(is_command_exists cert-to-efi-sig-list) -gt 0 ] || {
+[ $(is_command_exists cert-to-efi-sig-list) -gt 0 ] ||\
+	[ $(is_command_exists sbsign) -gt 0 ] ||\
+	[ $(is_command_exists unzip) -gt 0 ] ||\
+	[ $(is_command_exists wget) -gt 0 ] || {
 	echo "Please install 'sbsigntool' and 'efitools' before running this script";
 	exit 1;
 }
