@@ -1,4 +1,13 @@
 #!/bin/sh
+#
+# Copyright (c) 2023 Mike Beaton. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+#
+# Modified version of `shim_command`
+#
+# Original code: https://github.com/acidanthera/OpenCorePkg/blob/7e39fedf18fc47873e8313a665b1146b6e7712e6/Utilities/ShimUtils/shim-make.tool#L28-L50
+#
+
 case "$OSTYPE" in
 	"darwin"* )
 		[ $(command -v "multipass" | wc -l) -gt 0 ] || {

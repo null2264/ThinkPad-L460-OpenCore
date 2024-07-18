@@ -18,9 +18,20 @@ is_command_exists() {
 	exit 1;
 }
 
-test -d ./efikeys && { echo "Folder 'efikeys' already exists, exiting..."; exit 1; }
+test -d ./efikeys && {
+	printf "efikeys/ directory already exists, running this script again may overwrite your existing key, run anyway? [y/N] ";
+	read INPUT
+	case $INPUT in
+		"y"* ) ;;
+		"Y"* ) ;;
+		* )
+			exit 1
+		;;
+	esac;
+}
 mkdir -p ./efikeys
 cd ./efikeys
+
 openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME PK Platform Key/" -keyout PK.key -out PK.pem || exit 1
 openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME KEK Exchange Key/" -keyout KEK.key -out KEK.pem || exit 1
 openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME ISK Image Signing Key/" -keyout ISK.key -out ISK.pem || exit 1
