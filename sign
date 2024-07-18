@@ -1,4 +1,12 @@
 #!/bin/sh
+
+case "$OSTYPE" in
+	"darwin"* )
+		echo "Run this through multipass (e.g. multipass exec -- ./sign ./EFI/)"
+		exit 1
+	;;
+esac
+
 [ -f "./ISK.key" ] || { echo "ISK.key not found, cancelling..."; exit 1; }
 
 [ -f "./ISK.pem" ] || { echo "ISK.pem not found, cancelling..."; exit 1; }

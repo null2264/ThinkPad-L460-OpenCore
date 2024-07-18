@@ -4,12 +4,12 @@
 # Copyright (c) 2024 by null2264
 # Licensed under the terms of the GPL v3
 
-case $OSTYPE in darwin*) >&2 echo "Signing from macOS is currently not possible"; exit 1 ;; esac;
+. ./signing-common  # import execute
 
 # 0.8.7
 VERSION=$1
 
-[ -z "$1" ] && { echo "Usage: download-signed-opencore [oc version]"; exit 1; }
+[ -z "$1" ] && { echo "Usage: signed-opencore-downloader [oc version]"; exit 1; }
 
 # Download and unzip OpenCore
 wget "https://github.com/acidanthera/OpenCorePkg/releases/download/${VERSION}/OpenCore-${VERSION}-RELEASE.zip"
@@ -22,7 +22,7 @@ wget https://github.com/acidanthera/OcBinaryData/raw/master/Drivers/HfsPlus.efi 
 # Sign drivers by recursively looking for the .efi files in ./Downloaded directory
 # Don't sign files that start with the dot, as this is metadata files
 # Andrew Blitss's contribution
-./sign ./Downloaded/X64/EFI/**/*
+execute ./sign ./Downloaded/X64/EFI/**/*
 
 # Clean
 rm -rf Downloaded

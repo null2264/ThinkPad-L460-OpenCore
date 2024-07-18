@@ -7,40 +7,47 @@
 # - sbsigntools
 # - wget
 
-[ -d "efikeys" ] && { echo "Folder 'efikeys' already exists, exiting..."; exit 1; }
-mkdir efikeys
-cd efikeys
+. ./signing-common  # import execute
 
-openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME PK Platform Key/" -keyout PK.key -out PK.pem
-openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME KEK Exchange Key/" -keyout KEK.key -out KEK.pem
-openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME ISK Image Signing Key/" -keyout ISK.key -out ISK.pem
-chmod 0600 *.key
+is_command_exists() {
+	execute command -v $1 | wc -l || exit 1
+}
 
-wget --user-agent="Mozilla" https://www.microsoft.com/pkiops/certs/MicWinProPCA2011_2011-10-19.crt
-wget --user-agent="Mozilla" https://www.microsoft.com/pkiops/certs/MicCorUEFCA2011_2011-06-27.crt
+[ $(is_command_exists cert-to-efi-sig-list) -gt 0 ] || {
+	echo "Please install 'sbsigntool' and 'efitools' before running this script";
+	exit 1;
+}
 
-openssl x509 -in MicWinProPCA2011_2011-10-19.crt -inform DER -out MicWinProPCA2011_2011-10-19.pem -outform PEM
-openssl x509 -in MicCorUEFCA2011_2011-06-27.crt -inform DER -out MicCorUEFCA2011_2011-06-27.pem -outform PEM
+test -d ./efikeys && { echo "Folder 'efikeys' already exists, exiting..."; exit 1; }
+mkdir -p ./efikeys
+openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME PK Platform Key/" -keyout efikeys/PK.key -out efikeys/PK.pem || exit 1
+openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME KEK Exchange Key/" -keyout efikeys/KEK.key -out efikeys/KEK.pem || exit 1
+openssl req -new -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -subj "/CN=NAME ISK Image Signing Key/" -keyout efikeys/ISK.key -out efikeys/ISK.pem || exit 1
+chmod 0600 efikeys/*.key || exit 1
 
-cert-to-efi-sig-list -g $(uuidgen) PK.pem PK.esl
-cert-to-efi-sig-list -g $(uuidgen) KEK.pem KEK.esl
-cert-to-efi-sig-list -g $(uuidgen) ISK.pem ISK.esl
-cert-to-efi-sig-list -g $(uuidgen) MicWinProPCA2011_2011-10-19.pem MicWinProPCA2011_2011-10-19.esl
-cert-to-efi-sig-list -g $(uuidgen) MicCorUEFCA2011_2011-06-27.pem MicCorUEFCA2011_2011-06-27.esl
+wget --user-agent=\"Mozilla\" https://www.microsoft.com/pkiops/certs/MicWinProPCA2011_2011-10-19.crt -O efikeys/MicWinProPCA2011_2011-10-19.crt
+wget --user-agent=\"Mozilla\" https://www.microsoft.com/pkiops/certs/MicCorUEFCA2011_2011-06-27.crt -O efikeys/MicCorUEFCA2011_2011-06-27.crt
 
-cat ISK.esl MicWinProPCA2011_2011-10-19.esl MicCorUEFCA2011_2011-06-27.esl > db.esl
+openssl x509 -in efikeys/MicWinProPCA2011_2011-10-19.crt -inform DER -out efikeys/MicWinProPCA2011_2011-10-19.pem -outform PEM
+openssl x509 -in efikeys/MicCorUEFCA2011_2011-06-27.crt -inform DER -out efikeys/MicCorUEFCA2011_2011-06-27.pem -outform PEM
 
-sign-efi-sig-list -k PK.key -c PK.pem PK PK.esl PK.auth
-sign-efi-sig-list -k PK.key -c PK.pem KEK KEK.esl KEK.auth
-sign-efi-sig-list -k KEK.key -c KEK.pem db db.esl db.auth
+execute cert-to-efi-sig-list -g $(uuidgen) efikeys/PK.pem efikeys/PK.esl
+execute cert-to-efi-sig-list -g $(uuidgen) efikeys/KEK.pem efikeys/KEK.esl
+execute cert-to-efi-sig-list -g $(uuidgen) efikeys/ISK.pem efikeys/ISK.esl
+execute cert-to-efi-sig-list -g $(uuidgen) efikeys/MicWinProPCA2011_2011-10-19.pem efikeys/MicWinProPCA2011_2011-10-19.esl
+execute cert-to-efi-sig-list -g $(uuidgen) efikeys/MicCorUEFCA2011_2011-06-27.pem efikeys/MicCorUEFCA2011_2011-06-27.esl
 
-cp ISK.key ../
-cp ISK.pem ../
+cat efikeys/ISK.esl efikeys/MicWinProPCA2011_2011-10-19.esl efikeys/MicCorUEFCA2011_2011-06-27.esl > efikeys/db.esl
 
-cd ..
+execute sign-efi-sig-list -k efikeys/PK.key -c efikeys/PK.pem PK efikeys/PK.esl efikeys/PK.auth
+execute sign-efi-sig-list -k efikeys/PK.key -c efikeys/PK.pem KEK efikeys/KEK.esl efikeys/KEK.auth
+execute sign-efi-sig-list -k efikeys/KEK.key -c efikeys/KEK.pem db efikeys/db.esl efikeys/db.auth
 
-cp /usr/share/efitools/efi/KeyTool.efi ./
-./sign ./KeyTool.efi
+cp efikeys/ISK.key ./
+cp efikeys/ISK.pem ./
+
+execute cp /usr/share/efitools/efi/KeyTool.efi ./ || execute eval "cp /usr/lib/efitools/**/KeyTool.efi ./"  # Goddammit Ubuntu
+execute ./sign ./KeyTool.efi
 rm -f ./KeyTool.efi
 
 echo 'Certificate has been created, you can use `sign` script to sign *.efi files or use `download-signed-opencore [oc version]` to download signed OpenCore files'
