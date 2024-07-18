@@ -1,11 +1,10 @@
 #!/bin/sh
 
 execute() {
-	OC_SIGNING_MULTIPASS_WORKDIR=${OC_SIGNING_MULTIPASS_WORKDIR:-'./opencore'}
 	OC_SIGNING_MULTIPASS_INSTANCE=${OC_SIGNING_MULTIPASS_INSTANCE:-"primary"}
 	case "$OSTYPE" in
 		"darwin"* )
-			eval multipass exec ${OC_SIGNING_MULTIPASS_INSTANCE} --working-directory "${OC_SIGNING_MULTIPASS_WORKDIR}" -- $@
+			eval multipass exec ${OC_SIGNING_MULTIPASS_INSTANCE} -- $@
 		;;
 		* )
 			eval $@
