@@ -15222,7 +15222,6 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                 {
                     If (\H8DR)
                     {
-                        // FIXME: A lead? This never set back to One on wake
                         \_SB.PCI0.LPC.EC.HWFN = 0x00
                     }
                     Else
