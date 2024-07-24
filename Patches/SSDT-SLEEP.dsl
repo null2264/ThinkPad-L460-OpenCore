@@ -51,6 +51,7 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
 
     External (_SB.PCI0.LPC.EC.AC._PSR, MethodObj) // 0 Arguments
     External (_SB.PCI0.LPC.EC.LED, MethodObj) // 2 Arguments
+    External (_SB.SLPB._PSW, MethodObj) // 1 Arguments
     External (ZPTS, MethodObj) // 1 Arguments
     External (ZWAK, MethodObj) // 1 Arguments
 
@@ -109,6 +110,9 @@ DefinitionBlock ("", "SSDT", 2, "ZIRO", "SLEEP", 0x00000000)
             \PWRS = \_SB.PCI0.LPC.EC.AC._PSR ()
 
             \_SB.SCGE = One
+
+            // This was called with (0x00) parameter in _PTS (ZPTS), setting HWFN to 0x00. According to coreboot, HWFN is FN key
+            \_SB.SLPB._PSW (0x01)
         }
 
         If (CondRefOf (\ZPTS))

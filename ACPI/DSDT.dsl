@@ -2752,6 +2752,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
             }
         }
 
+        /* NOTE: SLeeP Button */
         Device (SLPB)
         {
             Name (_HID, EisaId ("PNP0C0E") /* Sleep Button Device */)  // _HID: Hardware ID
@@ -6311,6 +6312,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                             Return (0x80000000)
                         }
 
+                        /* NOTE: Get Media Key Status */
                         Method (GMKS, 0, NotSerialized)
                         {
                             If (\_SB.PCI0.LPC.EC.HFNE){}
@@ -6322,6 +6324,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                             }
                         }
 
+                        /* NOTE: Set Media Key Status */
                         Method (SMKS, 1, NotSerialized)
                         {
                             If ((Arg0 & 0x01))
@@ -6623,6 +6626,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-R08  ", 0x00001450)
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6000)
                         }
 
+                        /* NOTE: FN+Esc */
                         Method (_Q74, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
                         {
                             P80H = 0x74
