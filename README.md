@@ -3,9 +3,14 @@
 > [!WARNING]
 > I am not responsible for any damages you may cause
 >
-> This repository's main goal is to document my hackintosh journey. It is not meant to provide an out-of-the-box experience on doing hackintosh! If you're new to Hackintosh please make your own EFI by following [Dortania guide](https://dortania.github.io/) instead
+> This repository's main goal is to document my hackintosh journey, in case
+> something happened to my hackintosh stupid. It is **NOT** meant to provide an
+> out-of-the-box experience on doing hackintosh! If you're new to Hackintosh
+> please build your own EFI by following [Dortania
+> guide](https://dortania.github.io/) instead!
 >
-> If you insist on using my EFI, use it with your own risk, please note that I will **NOT** provide any support
+> If you insist on using my EFI, use it with your own risk, please note that I
+> will **NOT** provide any support
 
 ## 💻 Hardware
 - CPU: Intel Core i5-6300U
