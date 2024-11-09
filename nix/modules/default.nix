@@ -6,22 +6,22 @@
     # KextsFolders = [ ../../Kexts ];
     # DriversFolders = [ ../../Drivers ];
     packages = [
-      # pkgs.airportitlwm-latest-ventura
-      pkgs.oc.itlwm.v2_1_0
-      # pkgs.applealc-latest-release
-      # pkgs.brightnesskeys-latest-release
-      # pkgs.ecenabler-latest-release
-      # pkgs.intel-bluetooth-firmware-latest
-      # pkgs.brcmpatchram-latest-release
-      # pkgs.nvmefix-latest-release
-      # pkgs.virtualsmc-latest-release
-      # pkgs.whatevergreen-latest-release
-      # pkgs.lilu-latest-release
-      # pkgs.voodooi2c-latest
-      # pkgs.voodoops2controller-latest-release
-      # pkgs.rtcmemoryfixup-latest-release
-      # pkgs.intel-mausi-latest-release
-      # pkgs.usbtoolbox-latest-release
+      # pkgs.oc.airportitlwm.v2_1_0-ventura
+      pkgs.oc.itlwm.latest
+      # pkgs.oc.applealc.latest
+      # pkgs.oc.brightnesskeys.latest
+      # pkgs.oc.ecenabler.latest
+      # pkgs.oc.intel-bluetooth-firmware.latest
+      # pkgs.oc.brcmpatchram.latest
+      # pkgs.oc.nvmefix.latest
+      # pkgs.oc.virtualsmc.latest
+      # pkgs.oc.whatevergreen.latest
+      # pkgs.oc.lilu.latest
+      # pkgs.oc.voodooi2c.latest
+      # pkgs.oc.voodoops2controller.latest
+      # pkgs.oc.rtcmemoryfixup.latest
+      # pkgs.oc.intel-mausi.latest
+      # pkgs.oc.usbtoolbox.latest
     ];
   };
 }
