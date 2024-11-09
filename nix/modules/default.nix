@@ -6,8 +6,8 @@
     # KextsFolders = [ ../../Kexts ];
     # DriversFolders = [ ../../Drivers ];
     packages = [
-      # pkgs.oc.airportitlwm.v2_1_0-ventura
-      pkgs.oc.itlwm.latest
+      pkgs.oc.airportitlwm.latest-ventura
+      # pkgs.oc.itlwm.latest
       # pkgs.oc.applealc.latest
       # pkgs.oc.brightnesskeys.latest
       # pkgs.oc.ecenabler.latest
