@@ -2,11 +2,11 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1731133565,
-        "narHash": "sha256-tCErjTdCUWK06LzkcvwUM+3pyrrmdf8e0VDBBTgqznE=",
+        "lastModified": 1731142304,
+        "narHash": "sha256-xYnWv9kyJyF8rEZ1uJaSek2fmaIowkk/ovE6+MwcP2E=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "11f65b4b0405cff5b54c813626bddcf5435d7ad2",
+        "rev": "bb824c634c812feede9d398c000526401028c0e7",
         "type": "github"
       },
       "original": {
@@ -26,15 +26,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1668158355,
-        "narHash": "sha256-1Z9Ijdnbs/GgmZgX1jDFbtszgAJ42/TGy8dH6IgkEpM=",
-        "owner": "LEXUGE",
+        "lastModified": 1731142416,
+        "narHash": "sha256-Mabs8ZNVIhWbKomGvN5BwUyCnsYf/Cb7ZvcL5C/UEOU=",
+        "owner": "null2264",
         "repo": "oceanix",
-        "rev": "6c75636d0361f777307cc94569e6491d5ed32d77",
+        "rev": "e8fe2215ba779551932fa40e7428e347b00f9505",
         "type": "github"
       },
       "original": {
-        "owner": "LEXUGE",
+        "owner": "null2264",
         "repo": "oceanix",
         "type": "github"
       }

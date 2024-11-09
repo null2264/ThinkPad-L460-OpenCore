@@ -25,7 +25,7 @@
     utils.url = "github:numtide/flake-utils";
 
     oceanix = {
-      url = "github:LEXUGE/oceanix";
+      url = "github:null2264/oceanix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "utils";
     };
