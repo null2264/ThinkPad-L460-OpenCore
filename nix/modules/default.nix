@@ -10,7 +10,7 @@
     validate = false;
     resources = {
       # ACPIFolders = [ ../../Patches ];
-      # KextsFolders = [ ../../Kexts ];
+      KextsFolders = [ ../../Kexts ];
       # DriversFolders = [ ../../Drivers ];
       packages = [
         pkgs.oc.airportitlwm.latest-ventura
