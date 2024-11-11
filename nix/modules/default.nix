@@ -6,6 +6,14 @@
     type = "alc";
   };
 
+  kexts.virtualsmc = {
+    enable = true;
+    includedPlugins = [
+      "SMCBatteryManager"
+      "SMCProcessor"
+    ];
+  };
+
   oceanix.opencore = {
     validate = false;
     resources = {
@@ -20,7 +28,6 @@
         # pkgs.oc.intel-bluetooth-firmware.latest
         # pkgs.oc.brcmpatchram.latest
         # pkgs.oc.nvmefix.latest
-        # pkgs.oc.virtualsmc.latest
         # pkgs.oc.whatevergreen.latest
         # pkgs.oc.lilu.latest
         # pkgs.oc.voodooi2c.latest
