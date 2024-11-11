@@ -2,6 +2,9 @@
 end_of_line = lf
 insert_final_newline = true
 
+[nix/include/*]
+insert_final_newline = false
+
 [*.nix]
 indent_style = space
 indent_size = 2
