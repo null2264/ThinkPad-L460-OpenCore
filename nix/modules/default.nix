@@ -22,6 +22,7 @@
       # DriversFolders = [ ../../Drivers ];
       packages = [
         pkgs.oc.airportitlwm.latest-ventura
+        pkgs.oc.usbtoolbox.latest
         # pkgs.oc.itlwm.latest
         # pkgs.oc.brightnesskeys.latest
         # pkgs.oc.ecenabler.latest
@@ -34,7 +35,6 @@
         # pkgs.oc.voodoops2controller.latest
         # pkgs.oc.rtcmemoryfixup.latest
         # pkgs.oc.intel-mausi.latest
-        # pkgs.oc.usbtoolbox.latest
       ];
     };
     settings = let
