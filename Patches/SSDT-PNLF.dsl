@@ -7,9 +7,12 @@
 
 DefinitionBlock ("", "SSDT", 2, "CORP", "PNLF", 0x00000000)
 {
+    // From SSDT-DARWIN.dsl
+    External (OSDW, MethodObj) // 0 Arguments
+
     External (\_SB.PCI0.GFX0, DeviceObj)
 
-    If (_OSI ("Darwin"))
+    If (OSDW ())
     {
         Device (\_SB.PCI0.GFX0.PNLF)
         {

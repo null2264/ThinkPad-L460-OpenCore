@@ -3,6 +3,11 @@
 let
   cfg = config.oceanix;
 in {
+  imports = [
+    ./config/ACPI.nix
+    ./config/PlatformInfo.nix
+  ];
+
   kexts.applealc = {
     enable = true;
     type = "alc";
@@ -64,6 +69,5 @@ in {
         # pkgs.oc.intel-mausi.latest
       ];
     };
-    settings.PlatformInfo = import ./config/PlatformInfo.nix { };
   };
 }

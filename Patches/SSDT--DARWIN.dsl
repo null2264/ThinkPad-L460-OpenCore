@@ -1,6 +1,6 @@
 /* vim: ts=4 sw=4 et
  *
- * Helper SSDT, implements native Mac stuff
+ * Helper SSDT, implements native Mac stuff. Should be loaded first!
  */
 
 DefinitionBlock ("", "SSDT", 2, "ZIRO", "_DW", 0x00000000)
