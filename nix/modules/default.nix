@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   kexts.applealc = {
@@ -21,10 +21,27 @@
 
   oceanix.opencore = {
     validate = false;
+    # Only keep necessary drivers
+    package =
+      let
+        driversKeep = [
+          "AudioDxe.efi"
+          "OpenCanopy.efi"
+          "OpenRuntime.efi"
+          "Ps2KeyboardDxe.efi"
+          "ResetNvramEntry.efi"
+        ];
+      in pkgs.oc.opencore.latest.overrideAttrs (old: {
+        installPhase = ''
+          find ./*/EFI/Drivers -type f -iname "*.efi" \! \( -iname ${builtins.concatStringsSep " -o -iname " driversKeep} \) -exec rm -r \{\} +
+
+          ${old.installPhase or ""}
+        '';
+      });
     resources = {
       # ACPIFolders = [ ../../Patches ];
       # KextsFolders = [ ../../Kexts ];
-      # DriversFolders = [ ../../Drivers ];
+      DriversFolders = [ ../../Drivers ];
       packages = [
         pkgs.oc.airportitlwm.latest-ventura
         # pkgs.oc.itlwm.latest
