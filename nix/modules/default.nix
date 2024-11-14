@@ -24,7 +24,7 @@
     # Only keep necessary drivers
     package =
       let
-        driversKeep = [
+        driversToKeep = [
           "AudioDxe.efi"
           "OpenCanopy.efi"
           "OpenRuntime.efi"
@@ -33,7 +33,7 @@
         ];
       in pkgs.oc.opencore.latest.overrideAttrs (old: {
         installPhase = ''
-          find ./*/EFI/Drivers -type f -iname "*.efi" \! \( -iname ${builtins.concatStringsSep " -o -iname " driversKeep} \) -exec rm -r \{\} +
+          find ./*/EFI/Drivers -type f -iname "*.efi" \! \( -iname ${builtins.concatStringsSep " -o -iname " driversToKeep} \) -exec rm -r \{\} +
 
           ${old.installPhase or ""}
         '';
@@ -58,15 +58,6 @@
         # pkgs.oc.intel-mausi.latest
       ];
     };
-    settings = let
-      findValue = var: if builtins.pathExists ../include/${var} then (builtins.readFile ../include/${var}) else "";
-      mlb = findValue "mlb";
-      serialNumber = findValue "serialnumber";
-      systemUUID = findValue "uuid";
-    in {
-      PlatformInfo.Generic.MLB = if mlb == "" then "M0000000000000001" else mlb;
-      PlatformInfo.Generic.SystemSerialNumber = if serialNumber == "" then "W00000000001" else serialNumber;
-      PlatformInfo.Generic.SystemUUID = if systemUUID == "" then "00000000-0000-0000-0000-000000000000" else systemUUID;
-    };
+    settings.PlatformInfo = import ./config/PlatformInfo.nix { };
   };
 }
