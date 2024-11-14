@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  cfg = config.oceanix;
+in {
   kexts.applealc = {
     enable = true;
     type = "alc";
@@ -33,7 +35,7 @@
         ];
       in pkgs.oc.opencore.latest.overrideAttrs (old: {
         installPhase = ''
-          find ./*/EFI/Drivers -type f -iname "*.efi" \! \( -iname ${builtins.concatStringsSep " -o -iname " driversToKeep} \) -exec rm -r \{\} +
+          find ./${cfg.opencore.arch}/EFI/OC/Drivers -type f -iname "*.efi" \! \( -iname ${builtins.concatStringsSep " -o -iname " driversToKeep} \) -exec rm -r \{\} +
 
           ${old.installPhase or ""}
         '';
