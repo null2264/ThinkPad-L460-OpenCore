@@ -23,7 +23,6 @@ in {
 
   oceanix.opencore = {
     validate = false;
-    # Only keep necessary drivers
     package =
       let
         driversToKeep = [
@@ -33,9 +32,14 @@ in {
           "Ps2KeyboardDxe.efi"
           "ResetNvramEntry.efi"
         ];
+        toolsToKeep = [
+          "OpenControl.efi"
+          "OpenShell.efi"
+        ];
       in pkgs.oc.opencore.latest.overrideAttrs (old: {
         installPhase = ''
           find ./${cfg.opencore.arch}/EFI/OC/Drivers -type f -iname "*.efi" \! \( -iname ${builtins.concatStringsSep " -o -iname " driversToKeep} \) -exec rm -r \{\} +
+          find ./${cfg.opencore.arch}/EFI/OC/Tools -type f -iname "*.efi" \! \( -iname ${builtins.concatStringsSep " -o -iname " toolsToKeep} \) -exec rm -r \{\} +
 
           ${old.installPhase or ""}
         '';
