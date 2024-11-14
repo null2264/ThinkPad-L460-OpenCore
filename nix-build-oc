@@ -1,3 +1,3 @@
 #!/bin/sh
 # Force nix to build in path mode instead of git so we can load secret files in `nix/include/...`
-nix build path:.
+nix build path:. $@

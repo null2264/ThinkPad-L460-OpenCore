@@ -45,7 +45,7 @@ in {
         '';
       });
     resources = {
-      # ACPIFolders = [ ../../Patches ];
+      ACPIFolders = [ ../../Patches ];
       # KextsFolders = [ ../../Kexts ];
       DriversFolders = [ ../../Drivers ];
       packages = [
