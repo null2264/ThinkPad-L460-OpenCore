@@ -14,6 +14,11 @@
     ];
   };
 
+  kexts.usbtoolbox = {
+    enable = true;
+    mapping = ../include/kexts/UTBMap.kext;
+  };
+
   oceanix.opencore = {
     validate = false;
     resources = {
