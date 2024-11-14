@@ -23,11 +23,10 @@
     validate = false;
     resources = {
       # ACPIFolders = [ ../../Patches ];
-      KextsFolders = [ ../../Kexts ];
+      # KextsFolders = [ ../../Kexts ];
       # DriversFolders = [ ../../Drivers ];
       packages = [
         pkgs.oc.airportitlwm.latest-ventura
-        pkgs.oc.usbtoolbox.latest
         # pkgs.oc.itlwm.latest
         # pkgs.oc.brightnesskeys.latest
         # pkgs.oc.ecenabler.latest
