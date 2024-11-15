@@ -6,6 +6,7 @@ in {
   imports = [
     ./config/ACPI.nix
     ./config/Booter.nix
+    ./config/DeviceProperties.nix
     ./config/PlatformInfo.nix
   ];
 
