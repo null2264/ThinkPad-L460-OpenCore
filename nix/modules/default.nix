@@ -49,6 +49,9 @@ in {
           ${old.installPhase or ""}
         '';
       });
+    # We already filter out the unnecessary drivers and tools, so just auto enable them all
+    autoEnableDrivers = true;
+    autoEnableTools = true;
     resources = {
       ACPIFolders = [ ../../Patches ];
       # KextsFolders = [ ../../Kexts ];
