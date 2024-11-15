@@ -12,7 +12,7 @@
           };
 
           modules = [
-            ./nix/modules
+            ./Nix/modules
           ];
         };
       in
