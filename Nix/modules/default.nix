@@ -33,7 +33,7 @@ in {
   };
 
   oceanix.opencore = {
-    validate = false;
+    validate = true;
     package =
       let
         driversToKeep = [
