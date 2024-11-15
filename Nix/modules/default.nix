@@ -8,6 +8,7 @@ in {
     ./config/Booter.nix
     ./config/DeviceProperties.nix
     ./config/Kernel.nix
+    ./config/Misc.nix
     ./config/PlatformInfo.nix
   ];
 
