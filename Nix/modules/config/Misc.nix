@@ -28,12 +28,8 @@
       Vault = "Optional";
     };
 
-    Tools = {
-      "OpenControl.efi".FullNvramAccess = true;
-    };
-
     # Unused
     # REF: https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf
-    Entries = {};
+    Entries = [];
   };
 }

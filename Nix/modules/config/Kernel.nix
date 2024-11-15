@@ -5,7 +5,7 @@
     # Just bunch of clean up
     Block = [];
     Force = [];
-    Patch = {};
+    Patch = [];
 
     # REF: https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/skylake.html#quirks-3
     Quirks = {
