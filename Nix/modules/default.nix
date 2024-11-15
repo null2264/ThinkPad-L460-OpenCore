@@ -11,6 +11,7 @@ in {
     ./config/Misc.nix
     ./config/NVRAM.nix
     ./config/PlatformInfo.nix
+    ./config/UEFI.nix
   ];
 
   kexts.applealc = {
