@@ -9,6 +9,7 @@ in {
     ./config/DeviceProperties.nix
     ./config/Kernel.nix
     ./config/Misc.nix
+    ./config/NVRAM.nix
     ./config/PlatformInfo.nix
   ];
 
