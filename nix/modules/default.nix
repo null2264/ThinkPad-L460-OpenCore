@@ -5,6 +5,7 @@ let
 in {
   imports = [
     ./config/ACPI.nix
+    ./config/Booter.nix
     ./config/PlatformInfo.nix
   ];
 
