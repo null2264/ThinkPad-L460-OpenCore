@@ -29,7 +29,7 @@ in {
 
   kexts.usbtoolbox = {
     enable = true;
-    mapping = ../include/kexts/UTBMap.kext;
+    mapping = ../../Kexts/UTBMap.kext;
   };
 
   oceanix.opencore = {
