@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Copyright (c) 2024 null2264.
-# SPDX-License-Identifier: Unlicense
+# SPDX-License-Identifier: 0BSD
 #
 
 # Automation script to generate signing keys in order to enable Secure Boot for
