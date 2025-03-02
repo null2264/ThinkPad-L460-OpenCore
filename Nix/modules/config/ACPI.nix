@@ -23,6 +23,10 @@ let
     }: { inherit Base BaseSkip Comment Count Enabled Find Limit Mask OemTableId Replace ReplaceMask Skip TableLength TableSignature; };
 in {
   oceanix.opencore.settings.ACPI = {
+    Add = {
+      "SSDT-DARWIN.aml".Priority = 0;  # This patch should always be loaded first!
+    };
+
     Delete = [];
 
     Patch = [
