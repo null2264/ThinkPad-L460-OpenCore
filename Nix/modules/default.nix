@@ -73,9 +73,9 @@ in {
         # pkgs.oc.intel-bluetooth-firmware.latest
         # pkgs.oc.brcmpatchram.latest
         # pkgs.oc.nvmefix.latest
-        # pkgs.oc.whatevergreen.latest
-        # pkgs.oc.voodooi2c.latest
-        # pkgs.oc.voodoops2controller.latest
+        pkgs.oc.whatevergreen.latest
+        pkgs.oc.voodoormi.latest
+        pkgs.oc.voodoops2controller.latest
         # pkgs.oc.rtcmemoryfixup.latest
         # pkgs.oc.intel-mausi.latest
       ];

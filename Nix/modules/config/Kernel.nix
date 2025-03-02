@@ -2,6 +2,24 @@
 
 {
   oceanix.opencore.settings.Kernel = {
+    Add = {
+      "Lilu.kext".Enabled = true;
+      "AirportItlwm.kext".Enabled = true;
+      "AppleALC.kext".Enabled = true;
+      "SMCBatteryManager.kext".Enabled = true;
+      "SMCProcessor.kext".Enabled = true;
+      "USBToolBox.kext".Enabled = true;
+      "USBToolBox.kext/UTBMap.kext".Enabled = true;
+      "VirtualSMC.kext".Enabled = true;
+      "VoodooPS2Controller.kext".Enabled = true;
+      "VoodooPS2Controller.kext/VoodooPS2Keyboard.kext".Enabled = true;
+      "VoodooPS2Controller.kext/VoodooPS2Trackpad.kext".Enabled = true;
+      "VoodooRMI.kext".Enabled = true;
+      "VoodooRMI.kext/VoodooInput.kext".Enabled = true;
+      "VoodooSMBus.kext".Enabled = true;
+      "VoodooRMI.kext/RMISMBus.kext".Enabled = true;
+      "WhateverGreen.kext".Enabled = true;
+    };
     # Just bunch of clean up
     Block = [];
     Force = [];
