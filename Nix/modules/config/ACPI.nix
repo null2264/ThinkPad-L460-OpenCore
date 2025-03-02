@@ -69,6 +69,13 @@ in {
         Replace = mkData "hkJBVFg=";
         TableSignature = mkData "RFNEVA==";
       })
+      (mkPatch {
+        Enabled = false;
+        Comment = "_Qxx: _Q14 to XQ14";
+        Find = mkData "X1ExNA==";
+        Replace = mkData "WFExNA==";
+        TableSignature = mkData "RFNEVA==";
+      })
     ];
   };
 }
