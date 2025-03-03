@@ -6,6 +6,11 @@
       "Lilu.kext".Enabled = true;
       "AirportItlwm.kext".Enabled = true;
       "AppleALC.kext".Enabled = true;
+      "BrightnessKeys.kext".Enabled = true;
+      "ECEnabler.kext".Enabled = true;
+      "IntelBluetoothFirmware.kext".Enabled = true;
+      "IntelBluetoothInjector.kext".Enabled = true;
+      "IntelBTPatcher.kext".Enabled = true;
       "SMCBatteryManager.kext".Enabled = true;
       "SMCProcessor.kext".Enabled = true;
       "USBToolBox.kext".Enabled = true;

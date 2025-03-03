@@ -19,6 +19,11 @@ in {
     type = "alc";
   };
 
+  kexts.intel-mausi = {
+    enable = true;
+    type = "temperate";
+  };
+
   kexts.virtualsmc = {
     enable = true;
     includedPlugins = [
@@ -68,16 +73,15 @@ in {
         pkgs.oc.airportitlwm.latest-ventura
         pkgs.oc.lilu.latest
         # pkgs.oc.itlwm.latest
-        # pkgs.oc.brightnesskeys.latest
-        # pkgs.oc.ecenabler.latest
-        # pkgs.oc.intel-bluetooth-firmware.latest
+        pkgs.oc.brightnesskeys.latest
+        pkgs.oc.ecenabler.latest
+        pkgs.oc.intel-bluetooth-firmware.latest
         # pkgs.oc.brcmpatchram.latest
         # pkgs.oc.nvmefix.latest
         pkgs.oc.whatevergreen.latest
-        pkgs.oc.voodoormi.latest
         pkgs.oc.voodoops2controller.latest
+        pkgs.oc.voodoormi.latest
         # pkgs.oc.rtcmemoryfixup.latest
-        # pkgs.oc.intel-mausi.latest
       ];
     };
   };
