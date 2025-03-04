@@ -7,19 +7,25 @@
       "AirportItlwm.kext".Enabled = true;
       "AppleALC.kext".Enabled = true;
       # Only needed for Monterey or newer.
-      "AppleMCEReporterDisabler.kext".Enabled = true;
-      "AppleMCEReporterDisabler.kext".MinKernel = "21.0.0";
+      "AppleMCEReporterDisabler.kext" = {
+        Enabled = true;
+        MinKernel = "21.0.0";
+      };
       # Only needed for Monterey or newer.
-      "BlueToolFixup.kext".Enabled = true;
-      "BlueToolFixup.kext".MinKernel = "21.0.0";
+      "BlueToolFixup.kext" = {
+        Enabled = true;
+        MinKernel = "21.0.0";
+      };
       "BrightnessKeys.kext".Enabled = true;
       "CPUFriend.kext".Enabled = true;
       "CPUFriendDataProvider.kext".Enabled = true;
       "ECEnabler.kext".Enabled = true;
       "IntelBluetoothFirmware.kext".Enabled = true;
       # Not needed for Monterey or newer, BlueToolFixup is needed instead
-      "IntelBluetoothInjector.kext".Enabled = true;
-      "IntelBluetoothInjector.kext".MaxKernel = "20.99.9";
+      "IntelBluetoothInjector.kext" = {
+        Enabled = true;
+        MaxKernel = "20.99.9";
+      };
       # Recommended by the docs, but apparently not actually required? REF: https://openintelwireless.github.io/IntelBluetoothFirmware/FAQ.html#intelbtpatcher
       "IntelBTPatcher.kext".Enabled = true;
       "SMCBatteryManager.kext".Enabled = true;
