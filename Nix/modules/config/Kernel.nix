@@ -10,6 +10,7 @@
       "ECEnabler.kext".Enabled = true;
       "IntelBluetoothFirmware.kext".Enabled = true;
       "IntelBluetoothInjector.kext".Enabled = true;
+      "IntelBluetoothInjector.kext".MaxKernel = "20.99.9";  # Not needed for Monterey or newer, BlueToolFixup is needed instead
       "IntelBTPatcher.kext".Enabled = true;
       "SMCBatteryManager.kext".Enabled = true;
       "SMCProcessor.kext".Enabled = true;
