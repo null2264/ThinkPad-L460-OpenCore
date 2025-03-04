@@ -11,6 +11,11 @@ in {
     Add = {
       "7C436110-AB2A-4BBB-A880-FE41995C9F82" = {
         SystemAudioVolume = mkData "Iw==";
+        # >> Bluetooth Workaround for Ventura 13.4+
+        # REF: https://www.facebook.com/share/p/1DFnfQABsP/ (Eddie A. Brunson)
+        bluetoothExternalDongleFailed = mkData "AA==";
+        bluetoothInternalControllerInfo = mkData "AAAAAAAAAAAAAAAAAAA=";
+        # << Bluetooth Workaround
         boot-args = "${debug} igfxonln=1 igfxrpsc=1 itlwm_cc=${itlwmRegion} acpi_layer=0x08 acpi_level=0x02 vm_compressor=2 unfairgva=4";
         csr-active-config = mkData "BgAAAA==";  # Partially disable SIP for TotalFinder
         "prev-lang:kbd" = "en-US:0";
