@@ -19,6 +19,11 @@ in {
     type = "alc";
   };
 
+  kexts.cpufriend = {
+    enable = true;
+    dataProvider = ../../Kexts/CPUFriendDataProvider.kext;
+  };
+
   kexts.intel-mausi = {
     enable = true;
     type = "temperate";

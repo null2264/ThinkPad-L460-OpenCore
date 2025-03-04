@@ -7,6 +7,8 @@
       "AirportItlwm.kext".Enabled = true;
       "AppleALC.kext".Enabled = true;
       "BrightnessKeys.kext".Enabled = true;
+      "CPUFriend.kext".Enabled = true;
+      "CPUFriendDataProvider.kext".Enabled = true;
       "ECEnabler.kext".Enabled = true;
       "IntelBluetoothFirmware.kext".Enabled = true;
       "IntelBluetoothInjector.kext".Enabled = true;
@@ -15,7 +17,7 @@
       "SMCBatteryManager.kext".Enabled = true;
       "SMCProcessor.kext".Enabled = true;
       "USBToolBox.kext".Enabled = true;
-      "USBToolBox.kext/UTBMap.kext".Enabled = true;
+      "UTBMap.kext".Enabled = true;
       "VirtualSMC.kext".Enabled = true;
       "VoodooPS2Controller.kext".Enabled = true;
       "VoodooPS2Controller.kext/VoodooPS2Keyboard.kext".Enabled = true;
