@@ -12,6 +12,7 @@
         MinKernel = "21.0.0";
       };
       # Only needed for Monterey or newer.
+      # NOTE: You should disable this during update! It may break the update otherwise, even if RestrictEvents is enabled.
       "BlueToolFixup.kext" = {
         Enabled = true;
         MinKernel = "21.0.0";
@@ -19,7 +20,15 @@
       "BrightnessKeys.kext".Enabled = true;
       "CPUFriend.kext".Enabled = true;
       "CPUFriendDataProvider.kext".Enabled = true;
+      "CpuTscSync.kext".Enabled = true;  # Not sure if this kext is needed
+      "CtlnaAHCIPort.kext" = {
+        Enabled = true;
+        MinKernel = "20.0.0";
+      };
+      "DebugEnhancer.kext".Enabled = true;
       "ECEnabler.kext".Enabled = true;
+      "HibernationFixup.kext".Enabled = true;
+      #"HoRNDIS.kext".Enabled = true;  # (Android) USB Tethering support
       "IntelBluetoothFirmware.kext".Enabled = true;
       # Not needed for Monterey or newer, BlueToolFixup is needed instead
       "IntelBluetoothInjector.kext" = {
@@ -28,11 +37,13 @@
       };
       # Recommended by the docs, but apparently not actually required? REF: https://openintelwireless.github.io/IntelBluetoothFirmware/FAQ.html#intelbtpatcher
       "IntelBTPatcher.kext".Enabled = true;
+      "RestrictEvents.kext".Enabled = true;  # Prevent some issue caused by macOS events, especially for updates
       "SMCBatteryManager.kext".Enabled = true;
       "SMCProcessor.kext".Enabled = true;
       "USBToolBox.kext".Enabled = true;
       "UTBMap.kext".Enabled = true;
       "VirtualSMC.kext".Enabled = true;
+      "VoltageShift.kext".Enabled = true;  # For undervolting
       "VoodooPS2Controller.kext".Enabled = true;
       "VoodooPS2Controller.kext/VoodooPS2Keyboard.kext".Enabled = true;
       "VoodooPS2Controller.kext/VoodooPS2Trackpad.kext".Enabled = true;
@@ -41,11 +52,8 @@
       "VoodooSMBus.kext".Enabled = true;
       "VoodooRMI.kext/RMISMBus.kext".Enabled = true;
       "WhateverGreen.kext".Enabled = true;
+      "YogaSMC.kext".Enabled = true;  # ThinkPad hotkeys, battery settings, fan settings, etc.
     };
-    # Just bunch of clean up
-    Block = [];
-    Force = [];
-    Patch = [];
 
     # REF: https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/skylake.html#quirks-3
     Quirks = {
@@ -57,5 +65,10 @@
       # NOTE: Enable if you're planning to run macOS 10.x
       XhciPortLimit = false;
     };
+
+    # Just bunch of clean up
+    Block = [];
+    Force = [];
+    Patch = [];
   };
 }

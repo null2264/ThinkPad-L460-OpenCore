@@ -85,11 +85,18 @@ in {
         #pkgs.oc.itlwm.latest
         pkgs.oc.applemcereporterdisabler
         pkgs.oc.brightnesskeys.latest
+        pkgs.oc.cputscsync.latest
+        pkgs.oc.ctlnaahciport
+        pkgs.oc.debugenhancer.latest
         pkgs.oc.ecenabler.latest
+        pkgs.oc.hibernationfixup.latest
         pkgs.oc.intel-bluetooth-firmware.latest
+        pkgs.oc.restrictevents.latest
+        pkgs.oc.voltageshift.latest
         pkgs.oc.voodoops2controller.latest
         pkgs.oc.voodoormi.latest
         pkgs.oc.whatevergreen.latest
+        pkgs.oc.yogasmc.latest
       ];
     };
   };
