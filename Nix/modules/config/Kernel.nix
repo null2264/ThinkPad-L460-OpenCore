@@ -7,6 +7,9 @@
       "AirportItlwm.kext".Enabled = true;
       "AppleALC.kext".Enabled = true;
       # Only needed for Monterey or newer.
+      "AppleMCEReporterDisabler.kext".Enabled = true;
+      "AppleMCEReporterDisabler.kext".MinKernel = "21.0.0";
+      # Only needed for Monterey or newer.
       "BlueToolFixup.kext".Enabled = true;
       "BlueToolFixup.kext".MinKernel = "21.0.0";
       "BrightnessKeys.kext".Enabled = true;

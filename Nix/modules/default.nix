@@ -80,18 +80,16 @@ in {
       # KextsFolders = [ ../../Kexts ];
       DriversFolders = [ ../../Drivers ];
       packages = [
-        pkgs.oc.airportitlwm.latest-ventura
         pkgs.oc.lilu.latest
-        # pkgs.oc.itlwm.latest
+        pkgs.oc.airportitlwm.latest-ventura
+        #pkgs.oc.itlwm.latest
+        pkgs.oc.applemcereporterdisabler
         pkgs.oc.brightnesskeys.latest
         pkgs.oc.ecenabler.latest
         pkgs.oc.intel-bluetooth-firmware.latest
-        # pkgs.oc.brcmpatchram.latest
-        # pkgs.oc.nvmefix.latest
-        pkgs.oc.whatevergreen.latest
         pkgs.oc.voodoops2controller.latest
         pkgs.oc.voodoormi.latest
-        # pkgs.oc.rtcmemoryfixup.latest
+        pkgs.oc.whatevergreen.latest
       ];
     };
   };
