@@ -24,9 +24,19 @@ in {
     dataProvider = ../../Kexts/CPUFriendDataProvider.kext;
   };
 
+  kexts.intel-bluetooth-firmware = {
+    enable = true;
+    includeBlueToolFixup = true;
+  };
+
   kexts.intel-mausi = {
     enable = true;
     type = "temperate";
+  };
+
+  kexts.usbtoolbox = {
+    enable = true;
+    mapping = ../../Kexts/UTBMap.kext;
   };
 
   kexts.virtualsmc = {
@@ -35,11 +45,6 @@ in {
       "SMCBatteryManager"
       "SMCProcessor"
     ];
-  };
-
-  kexts.usbtoolbox = {
-    enable = true;
-    mapping = ../../Kexts/UTBMap.kext;
   };
 
   oceanix.opencore = {
