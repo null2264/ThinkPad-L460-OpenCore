@@ -45,6 +45,7 @@
       "VirtualSMC.kext".Enabled = true;
       "VoltageShift.kext".Enabled = true;  # For undervolting
       "VoodooPS2Controller.kext".Enabled = true;
+      "VoodooPS2Controller.kext/VoodooInput.kext".Enabled = false;
       "VoodooPS2Controller.kext/VoodooPS2Keyboard.kext".Enabled = true;
       "VoodooPS2Controller.kext/VoodooPS2Trackpad.kext".Enabled = true;
       "VoodooRMI.kext".Enabled = true;
