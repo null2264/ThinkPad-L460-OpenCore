@@ -45,15 +45,17 @@
       "VirtualSMC.kext".Enabled = true;
       "VoltageShift.kext".Enabled = true;  # For undervolting
       "VoodooPS2Controller.kext".Enabled = true;
-      "VoodooPS2Controller.kext/VoodooInput.kext".Enabled = false;
-      "VoodooPS2Controller.kext/VoodooPS2Keyboard.kext".Enabled = true;
-      "VoodooPS2Controller.kext/VoodooPS2Trackpad.kext".Enabled = true;
       "VoodooRMI.kext".Enabled = true;
-      "VoodooRMI.kext/VoodooInput.kext".Enabled = true;
+      "VoodooRMI.kext/VoodooInput.kext".after = ["com.1Revenger1.VoodooRMI"];
+      "VoodooRMI.kext/VoodooInput.kext".before = ["de.leo-labs.VoodooSMBus" "com.alexandred.VoodooI2C"];
       "VoodooSMBus.kext".Enabled = true;
-      "VoodooRMI.kext/RMISMBus.kext".Enabled = true;
       "WhateverGreen.kext".Enabled = true;
       "YogaSMC.kext".Enabled = true;  # ThinkPad hotkeys, battery settings, fan settings, etc.
+
+      # Explicitly disable these kexts because "enable plugin recursively" is enabled
+      "VoodooPS2Controller.kext/VoodooInput.kext".Enabled = false;  # We'll be using VoodooRMI's VoodooInput instead.
+      "VoodooPS2Controller.kext/VoodooPS2Mouse.kext".Enabled = false;  # Probably useful? Not sure, will test it later
+      "VoodooRMI.kext/RMII2C.kext".Enabled = false;  # L460 uses SMBus trackpad
     };
 
     # REF: https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/skylake.html#quirks-3
