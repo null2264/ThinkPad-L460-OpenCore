@@ -21,7 +21,7 @@ in {
 
   kexts.cpufriend = {
     enable = true;
-    dataProvider = ../../Kexts/CPUFriendDataProvider.kext;
+    dataProvider = ../../Include/PlugIns/CPUFriendDataProvider.kext;
   };
 
   kexts.intel-bluetooth-firmware = {
@@ -36,7 +36,7 @@ in {
 
   kexts.usbtoolbox = {
     enable = true;
-    mapping = ../../Kexts/UTBMap.kext;
+    mapping = ../../Include/PlugIns/UTBMap.kext;
   };
 
   kexts.virtualsmc = {

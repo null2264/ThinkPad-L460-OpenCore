@@ -19,7 +19,7 @@
       };
       "BrightnessKeys.kext".Enabled = true;
       "CPUFriend.kext".Enabled = true;
-      "CPUFriendDataProvider.kext".Enabled = true;
+      "CPUFriend.kext/CPUFriendDataProvider.kext".after = ["org.acidanthera.driver.CPUFriend"];
       "CpuTscSync.kext".Enabled = true;  # Not sure if this kext is needed
       "CtlnaAHCIPort.kext" = {
         Enabled = true;
@@ -41,7 +41,6 @@
       "SMCBatteryManager.kext".Enabled = true;
       "SMCProcessor.kext".Enabled = true;
       "USBToolBox.kext".Enabled = true;
-      "UTBMap.kext".Enabled = true;
       "VirtualSMC.kext".Enabled = true;
       "VoltageShift.kext".Enabled = true;  # For undervolting
       "VoodooPS2Controller.kext".Enabled = true;
