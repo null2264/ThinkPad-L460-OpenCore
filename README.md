@@ -308,6 +308,11 @@ perez987. The guide is a bit confusing to navigate through, but the key points a
     - (Only for **AirPortOpenBSD - v2.3.0 or newer**) You try turning on and off the wifi connection on macOS
     - (Only for **AirPortOpenBSD - v2.3.0 or newer**) You can also try clicking "other" and manually connect to the WiFi
       - If it says "network couldn't be found", try turning off and on again the WiFi (your device's wifi connect and/or your access point), then try again
+  - If you're experiencing connection issue:
+    - Switch between AirPortOpenBSD, AirportItlwm and itlwm
+    - Check your router settings
+      - Try different wifi channel
+      - Try switching between 2GHz and 5GHz (if supported)
 
 ### ⚠️ Partially Working
 - \_Qxx EC Query not firing after sleep, caused FN Hotkeys and some battery update functions to stop working, reboot is required to fix it. A common issue on E-Series and L-series ThinkPad
