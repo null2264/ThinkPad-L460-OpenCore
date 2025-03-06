@@ -13,7 +13,7 @@
 > will **NOT** provide any support
 
 ## 💻 Hardware
-- CPU: Intel Core i5-6300U
+- CPU: [Intel Core i5-6300U](https://www.intel.com/content/www/us/en/products/sku/88190/intel-core-i56300u-processor-3m-cache-up-to-3-00-ghz/specifications.html?wapkw=6300U)
 - GPU: Intel HD 520 (Spoofed as HD 620)
 - RAM: 8GB
 - Storage: 256GB SSD SATA (SSDSC2KF256H6L)
