@@ -57,14 +57,14 @@ in {
       })
       (mkPatch {
         Enabled = true;
-        Comment = "BATX: Nofify(BAT0, xx) to BATX";
+        Comment = "BATX: Notify(BAT0, xx) to BATX";
         Find = mkData "hkJBVDA=";
         Replace = mkData "hkJBVFg=";
         TableSignature = mkData "RFNEVA==";
       })
       (mkPatch {
         Enabled = true;
-        Comment = "BATX: Nofify(BAT1, xx) to BATX";
+        Comment = "BATX: Notify(BAT1, xx) to BATX";
         Find = mkData "hkJBVDE=";
         Replace = mkData "hkJBVFg=";
         TableSignature = mkData "RFNEVA==";
