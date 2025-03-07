@@ -16,7 +16,7 @@ in {
         bluetoothExternalDongleFailed = mkData "AA==";
         bluetoothInternalControllerInfo = mkData "AAAAAAAAAAAAAAAAAAA=";
         # << Bluetooth Workaround
-        boot-args = "${debug} igfxonln=1 igfxrpsc=1 itlwm_cc=${itlwmRegion} acpi_layer=0x08 acpi_level=0x02 vm_compressor=2 unfairgva=4";
+        boot-args = "${debug} igfxonln=1 igfxrpsc=1 itlwm_cc=${itlwmRegion} acpi_layer=0x08 acpi_level=0x02 vm_compressor=2 unfairgva=4 -igfxsklaskbl";
         csr-active-config = mkData "BgAAAA==";  # Partially disable SIP for TotalFinder
         "prev-lang:kbd" = "en-US:0";
       };
