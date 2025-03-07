@@ -27,6 +27,8 @@ with lib.oc.plist;
         framebuffer-fbmem = mkData "AACQAA==";
         framebuffer-patch-enable = mkData "AQAAAA==";
         framebuffer-stolenmem = mkData "AAAwAQ==";
+
+        "AAPL,slot-name" = "Internal@0,2,0";  # Fix H264 support
       };
     };
 
