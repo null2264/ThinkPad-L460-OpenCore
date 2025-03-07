@@ -26,7 +26,7 @@ with lib.oc.plist;
         framebuffer-con2-type = mkData "AAQAAA==";
         framebuffer-fbmem = mkData "AACQAA==";
         framebuffer-patch-enable = mkData "AQAAAA==";
-        framebuffer-stolenmem = mkData "AABAAQ==";
+        framebuffer-stolenmem = mkData "AAAwAQ==";
       };
     };
 
