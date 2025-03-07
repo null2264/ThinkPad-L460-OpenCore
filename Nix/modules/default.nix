@@ -77,7 +77,7 @@ in {
     autoEnableACPI = true;
     resources = {
       ACPIFolders = [ ../../Patches ];
-      # KextsFolders = [ ../../Kexts ];
+      KextsFolders = [ ../../Kexts ];
       DriversFolders = [ ../../Drivers ];
       packages = [
         pkgs.oc.lilu.latest

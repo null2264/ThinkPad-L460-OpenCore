@@ -28,7 +28,7 @@
       "DebugEnhancer.kext".Enabled = true;
       "ECEnabler.kext".Enabled = true;
       "HibernationFixup.kext".Enabled = true;
-      #"HoRNDIS.kext".Enabled = true;  # (Android) USB Tethering support
+      "HoRNDIS.kext".Enabled = true;  # (Android) USB Tethering support
       "IntelBluetoothFirmware.kext".Enabled = true;
       # Not needed for Monterey or newer, BlueToolFixup is needed instead
       "IntelBluetoothInjector.kext" = {
