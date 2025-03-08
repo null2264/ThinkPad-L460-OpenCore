@@ -333,8 +333,7 @@ perez987. The guide is a bit confusing to navigate through, but the key points a
       - CTRL+F11 = FN+F11 -> Open Mission Control
       - CTRL+F12 = FN+F12 -> Open Launchpad
 - DRM
-  - iGPU-only DRM is completely broken, use browser with Widevine DRM instead
-  - Some iGPU-only Laptop users reported that `unfairgva=4` fixed it, you may test it on your device, but this workaround doesn't seems to be working on my Laptop
+  - iGPU-only DRM is partially broken (`unfairgva=4` partially fix the DRM, I can play Apple TV movies, but only audio is playing), use browser with Widevine DRM instead
 
 ### ❌ Not Working
 - SD Card Reader (Disabled on BIOS)
