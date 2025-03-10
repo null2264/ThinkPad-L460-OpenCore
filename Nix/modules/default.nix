@@ -47,6 +47,11 @@ in {
     ];
   };
 
+  kexts.yogasmc = {
+    enable = true;
+    type = "lilu";
+  };
+
   oceanix.opencore = {
     validate = true;
     package =
@@ -96,7 +101,6 @@ in {
         pkgs.oc.voodoops2controller.latest
         pkgs.oc.voodoormi.latest
         pkgs.oc.whatevergreen.latest
-        pkgs.oc.yogasmc.latest
       ];
     };
   };
