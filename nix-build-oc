@@ -1,3 +1,5 @@
 #!/bin/sh
+system="$(nix eval --impure --raw --expr 'builtins.currentSystem')"
+flakeAttr="l460.$system.efiPackage"
 # Force nix to build in path mode instead of git so we can load secret files in `nix/include/...`
-nix build path:. $@
+nix build path:.#opencoreConfigurations.${flakeAttr} $@
